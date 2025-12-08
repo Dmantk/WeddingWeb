@@ -1,177 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>An & Kha - Wedding</title>
-  <link rel="icon" href="assets/icons/favicon.png" />
-  <!-- Link đến file CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An & Trân Wedding</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Gamja+Flower&family=Teko:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header / Hero -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <img src="assets/images/hero.jpg" alt="An & Kha" class="hero-image" />
-    <div class="hero-content">
-      <h1 class="names">Minh An & Thu Kha</h1>
-      <p class="subtitle">We’re Getting Married!</p>
-      <div class="save-the-date-box">
-        <div class="save-title">SAVE THE DATE</div>
-        <div class="save-date">24-01-2026</div>
-      </div>
-      <div class="buttons">
-        <a href="#rsvp" class="btn">Xác nhận tham dự</a>
-        <a href="#details" class="btn ghost">Thông tin</a>
-      </div>
-    </div>
-    <!-- Wave divider -->
-    <div class="wave-divider">
-      <svg class="wave" viewBox="0 0 500 150" preserveAspectRatio="none">
-        <path d="M0,50 
-                C60,150 110,-50 170,50
-                C230,150 285,-50 340,50
-                C395,150 450,-50 500,50
-                L500,150 L0,150 Z" />
-      </svg>
-    </div>
-  </header>
 
-  <!-- Sections main -->
-  <main>
-    <!-- Countdown + Day count -->
-    <section id="countdown" class="section center">
-      <h2>Đếm ngược tới lễ cưới</h2>
-      <div id="timer" class="timer">
-        <div><span id="days">0</span><small>Ngày</small></div>
-        <div><span id="hours">0</span><small>Giờ</small></div>
-        <div><span id="mins">0</span><small>Phút</small></div>
-        <div><span id="secs">0</span><small>Giây</small></div>
-      </div>
+    <!-- ========================= -->
+    <!--   HERO SECTION            -->
+    <!-- ========================= -->
+    <div class="hero">
+        <img src="assets/hero.jpg" alt="Couple Photo" class="hero-image">
+        <div class="overlay"></div>
 
-      <div class="love-days">
-        <p>Đã yêu nhau: <strong id="lovendays">0</strong> ngày</p>
-      </div>
+        <div class="hero-content">
+            <h1 class="names">An & Trân</h1>
+            <div class="subtitle">Trân trọng kính mời</div>
+
+            <div class="save-the-date-box">
+                <div class="save-title">Lễ Thành Hôn</div>
+                <div class="save-date">21 • 03 • 2025</div>
+            </div>
+
+            <div class="btn-group">
+                <a href="#info" class="btn">Thông tin dự tiệc</a>
+                <a href="#rsvp" class="btn ghost">Mừng cưới</a>
+            </div>
+        </div>
+
+        <!-- Wave -->
+        <div class="wave-divider">
+            <svg class="wave" viewBox="0 0 1200 90" preserveAspectRatio="none">
+                <path d="M0,30 C300,90 900,-30 1200,30 V90 H0 Z"></path>
+            </svg>
+        </div>
+    </div>
+
+
+    <!-- ========================= -->
+    <!--   COUNTDOWN SECTION       -->
+    <!-- ========================= -->
+    <section id="info" class="section center">
+        <h2 class="section-title">Countdown to Our Wedding</h2>
+        <p class="section-subtitle">Chúng mình đã yêu nhau được:</p>
+
+        <div class="timer">
+            <div><span id="days">0</span><br>Ngày</div>
+            <div><span id="hours">0</span><br>Giờ</div>
+            <div><span id="minutes">0</span><br>Phút</div>
+            <div><span id="seconds">0</span><br>Giây</div>
+        </div>
     </section>
 
-    <!-- Details (thông tin lễ cưới) -->
-    <section id="details" class="section cards">
-      <article class="card">
-        <h3>Thời gian & Địa điểm</h3>
-        <p><strong>Tiệc chính:</strong> 18:00 - 21:00</p>
-        <p><strong>Địa chỉ:</strong> Nhà hàng XYZ, Hà Nội</p>
-        <!-- Google Maps embed - thẻ iframe, thay src bằng link của bạn -->
+
+    <!-- ========================= -->
+    <!--   GALLERY SECTION         -->
+    <!-- ========================= -->
+    <section class="section">
+        <h2 class="section-title center">Album Hình Của Chúng Mình</h2>
+
+        <div class="gallery-grid">
+            <img src="assets/g1.jpg">
+            <img src="assets/g2.jpg">
+            <img src="assets/g3.jpg">
+            <img src="assets/g4.jpg">
+            <img src="assets/g5.jpg">
+            <img src="assets/g6.jpg">
+        </div>
+    </section>
+
+
+    <!-- ========================= -->
+    <!--   LOCATION SECTION        -->
+    <!-- ========================= -->
+    <section class="section center">
+        <h2 class="section-title">Địa Điểm Tổ Chức</h2>
+
         <div class="map-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!..."
-            style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen loading="lazy"></iframe>
         </div>
-      </article>
-
-      <article class="card">
-        <h3>Lịch trình</h3>
-        <ul>
-          <li>17:00 - Đón khách</li>
-          <li>18:00 - Lễ chính</li>
-          <li>19:00 - Tiệc & Games</li>
-        </ul>
-      </article>
     </section>
 
-    <!-- Gallery -->
-    <section id="gallery" class="section center">
-      <h2>Ảnh kỷ niệm</h2>
-      <div class="gallery-grid">
-        <img src="assets/images/gallery1.jpg" alt="gallery1" />
-        <img src="assets/images/gallery2.jpg" alt="gallery2" />
-        <img src="assets/images/gallery3.jpg" alt="gallery3" />
-      </div>
+
+    <!-- ========================= -->
+    <!--   RSVP SECTION            -->
+    <!-- ========================= -->
+    <section id="rsvp" class="section">
+        <h2 class="section-title center">Gửi Lời Chúc / Mừng Cưới</h2>
+
+        <form class="rsvp-form">
+            <label>
+                Họ và tên:
+                <input type="text" required>
+            </label>
+
+            <label>
+                Lời nhắn:
+                <textarea rows="4"></textarea>
+            </label>
+
+            <div class="form-actions">
+                <button type="submit" class="btn">Gửi</button>
+            </div>
+
+            <div class="status"></div>
+        </form>
     </section>
 
-    <!-- RSVP Form -->
-    <section id="rsvp" class="section center">
-      <h2>RSVP — Xác nhận tham dự</h2>
-      <form id="rsvpForm" class="rsvp-form">
-        <label>
-          Họ tên
-          <input type="text" name="name" id="name" required />
-        </label>
-        <label>
-          Số điện thoại / Email
-          <input type="text" name="contact" id="contact" required />
-        </label>
-        <label>
-          Số khách
-          <input type="number" name="guests" id="guests" min="1" value="1" />
-        </label>
-        <label>
-          Lời nhắn (tuỳ chọn)
-          <textarea name="message" id="message"></textarea>
-        </label>
-        <div class="form-actions">
-          <!-- Nút này sẽ gửi mail (mailto) nếu bạn chưa xài backend -->
-          <button type="submit" class="btn">Gửi RSVP</button>
-          <button type="button" id="saveLocal" class="btn ghost">Lưu cục bộ</button>
-        </div>
-        <p id="formStatus" class="status"></p>
-      </form>
-    </section>
 
-    <!-- Footer -->
+    <!-- ========================= -->
+    <!--   FOOTER                  -->
+    <!-- ========================= -->
     <footer class="footer">
-      <p>© Minh Ân & Thu Kha — Cảm ơn mọi người</p>
+        © 2025 An & Trân — Wedding Invitation
     </footer>
-  </main>
 
-  <script src="assets/js/main.js"></script>
 
-  <!-- Countdown & Love Days Script -->
-  <script>
-    // ==== CONFIG NGÀY ====
-    // Ngày cưới (YYYY-MM-DD)
-    const weddingDate = new Date("2026-01-24T11:30:00");
+    <!-- Countdown Script -->
+    <script>
+        const target = new Date("2025-03-21T00:00:00").getTime();
+        setInterval(() => {
+            let now = new Date().getTime();
+            let diff = target - now;
 
-    // Ngày bắt đầu yêu nhau (YYYY-MM-DD)
-    const loveStartDate = new Date("2015-08-13T00:00:00");
-
-    // ==== COUNTDOWN TỚI NGÀY CƯỚI ====
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const target = weddingDate.getTime();
-      const diff = target - now;
-
-      if (diff <= 0) {
-        document.getElementById("days").innerText = 0;
-        document.getElementById("hours").innerText = 0;
-        document.getElementById("mins").innerText = 0;
-        document.getElementById("secs").innerText = 0;
-        return;
-      }
-
-      document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      document.getElementById("mins").innerText = Math.floor((diff / (1000 * 60)) % 60);
-      document.getElementById("secs").innerText = Math.floor((diff / 1000) % 60);
-    }
-
-    // ==== TÍNH NGÀY YÊU NHAU ====
-    function updateLoveDays() {
-      const now = new Date();
-      const diff = now - loveStartDate;
-
-      const loveDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("lovendays").innerText = loveDays;
-    }
-
-    // ==== CHẠY LIÊN TỤC ====
-    setInterval(updateCountdown, 1000);
-    updateLoveDays();
-    updateCountdown();
-  </script>
+            document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24));
+            document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+            document.getElementById("minutes").innerText = Math.floor((diff%(1000*60*60))/(1000*60));
+            document.getElementById("seconds").innerText = Math.floor((diff%(1000*60))/1000);
+        }, 1000);
+    </script>
 
 </body>
 </html>
-
