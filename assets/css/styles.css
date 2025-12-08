@@ -1,167 +1,191 @@
-/* styles.css
-   Các comment giúp bạn hiểu từng block.
-*/
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{font-family:system-ui,-apple-system,"Segoe UI",Roboto; color:#222;}
 
-/* Reset cơ bản */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#222; }
-
-/* Hero */
+/* ============================= */
+/* HERO */
+/* ============================= */
 .hero {
   position: relative;
-  height: 150vh;
-  min-height: 420px;
+  height: 100vh;              /* Tự fit với mọi màn hình */
+  min-height: 500px;
+  width: 100%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  overflow: hidden;
 }
+
 .hero-image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.6);
+  filter: brightness(0.55);
 }
+
 .overlay {
-  position: absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
 }
+
+/* hero content */
 .hero-content {
   position: absolute;
-  top: 75%;          /* mặc định thường là 50% → dời xuống */
+  top: 50%;                     /* chuẩn responsive */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: #fff;
 }
+
 .names {
-  font-size: 50px;
-  font-weight: 700;
-  color: #fff;
-  font-family: 'Pacifico', cursive;
-  letter-spacing: 1px;
-  margin-bottom: 30px;    /* khoảng cách bên dưới tên cặp đôi */
+  font-family: "Pacifico", cursive;
+  font-size: clamp(26px, 6vw, 52px); /* co giãn theo mọi màn hình */
+  margin-bottom: 8px;
 }
-.subtitle 
-{
-  font-size: 20px;
-  font-weight: 700;
-  color: #fff;
-  font-family: 'Gamja Flower';
-  letter-spacing: 1px;
-  margin-bottom: 10px;    /* khoảng cách bên dưới tên cặp đôi */
+
+.subtitle{
+  font-family:'Gamja Flower';
+  font-size: clamp(16px, 4vw, 26px);
+  margin-bottom: 8px;
 }
-.date { font-weight: 600; margin-bottom: 0.8rem; }
 
 .save-the-date-box {
-  background: #c62828;        /* đỏ đậm */
+  background:#c62828;
   padding: 10px 20px;
   border-radius: 12px;
-  display: inline-block;
-  text-align: center;
-  margin-top: 12px;
-  margin-bottom: 50px;    /* khoảng cách bên dưới tên cặp đôi */
+  display:inline-block;
+  margin:15px 0 25px 0;
 }
 
-.save-title {
-  font-size: 17px;
-  font-weight: 700;
-  color: #fff;
-  font-family: 'Teko';
-  letter-spacing: 1px;
-  margin-bottom: -10px; 
+.save-title{
+  font-family:'Teko';
+  font-size: clamp(14px, 3vw, 22px);
+  margin-bottom:-5px;
+  color:#fff;
 }
 
-.save-date {
-  font-size: 30px;
-  margin-top: 5px;
-  color: #fff;
-  font-family: 'Teko';
+.save-date{
+  font-family:'Teko';
+  color:#fff;
+  font-size: clamp(20px, 6vw, 40px);
 }
 
-
-/* Buttons */
+/* buttons */
 .btn {
-  display: inline-block;
-  padding: 0.55rem 1rem;
-  background: #f6c85f;
+  display:inline-block;
+  padding:0.55rem 1rem;
+  border-radius:10px;
+  background:#f6c85f;
+  margin:4px;
+  font-weight:600;
   color:#222;
-  border-radius: 10px;
-  text-decoration: none;
-  margin: 0 .25rem;
-  font-weight: 600;
+  text-decoration:none;
 }
 .btn.ghost {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.6);
-  color: #fff;
-}
-/* Wave divider */
-.wave-divider {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  margin-top: 880px;
+  background:transparent;
+  border:1px solid #fff;
+  color:#fff;
 }
 
-.wave {
-  width: 300%;       /* Quan trọng để tạo hiệu ứng chuyển động */
-  height: 90px;
-  animation: waveMove 8s linear infinite;
+/* ============================= */
+/* WAVE */
+/* ============================= */
+.wave-divider{
+  width:100%;
+  position:absolute;
+  bottom:0;                 /* GHIM wave vào đáy màn hình */
+  left:0;
+  overflow:hidden;
+  line-height:0;
 }
 
-.wave path {
-  fill: #ffffff;
+.wave{
+  width:300%;
+  height:90px;
+  animation:waveMove 8s linear infinite;
 }
+.wave path{fill:#ffffff;}
 
-/* Animation dịch chuyển sóng */
 @keyframes waveMove {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* dịch trái 50% để tạo hiệu ứng lặp */
-  }
+  0% {transform:translateX(0);}
+  100% {transform:translateX(-50%);}
 }
 
+/* ============================= */
+/* SECTIONS */
+/* ============================= */
+.section { padding: 2.25rem 1rem; max-width:1100px; margin:auto; }
+.center{text-align:center;}
 
-/* Sections */
-.section { padding: 2.25rem 1rem; max-width: 1100px; margin: 0 auto; }
-.center { text-align: center; }
-
-/* Countdown timer */
-.timer { display:flex; justify-content:center; gap:1rem; margin-top:1rem; }
-.timer div { background: rgba(0,0,0,0.5); padding: .8rem 1rem; border-radius: 8px; color:#fff; min-width:70px; }
-.timer span { display:block; font-size:1.4rem; font-weight:700; }
+/* countdown */
+.timer{
+  display:flex; gap:1rem; justify-content:center; margin-top:1rem;
+  flex-wrap:wrap;   /* tránh vỡ dòng trên mobile */
+}
+.timer div{
+  background:rgba(0,0,0,0.5);
+  padding:.8rem 1rem;
+  border-radius:8px;
+  min-width:70px;
+  color:#fff;
+}
+.timer span{font-size:1.4rem;font-weight:700;}
 
 /* Cards */
-.cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:1rem; align-items:start; }
+.cards{
+  display:grid;
+  gap:1rem;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+}
 
-/* Map */
-.map-wrap { margin-top: .5rem; width:100%; height:200px; overflow:hidden; border-radius:8px; }
-.map-wrap iframe { width:100%; height:100%; border:0; }
+/* map */
+.map-wrap{margin-top:.5rem;width:100%;height:200px;border-radius:8px;overflow:hidden;}
+.map-wrap iframe{width:100%;height:100%;border:0;}
 
-/* Gallery */
-.gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:8px; }
-.gallery-grid img { width:100%; height:150px; object-fit:cover; border-radius:6px; }
+/* gallery */
+.gallery-grid{
+  display:grid;
+  gap:10px;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+}
+.gallery-grid img{
+  width:100%; height:160px; object-fit:cover; border-radius:6px;
+}
 
-/* RSVP form */
-.rsvp-form { max-width:600px; margin: 0 auto; display:flex; flex-direction:column; gap:.6rem; }
-.rsvp-form label { display:flex; flex-direction:column; text-align:left; font-size:.95rem; }
-.rsvp-form input, .rsvp-form textarea { padding:.6rem; border:1px solid #ddd; border-radius:8px; margin-top:.3rem; }
-.form-actions { display:flex; gap:.5rem; justify-content:center; margin-top:.6rem; }
-.status { margin-top:.5rem; color:green; font-weight:600; }
+/* RSVP */
+.rsvp-form{
+  max-width:600px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:.7rem;
+}
+.rsvp-form label{display:flex;flex-direction:column;font-size:1rem;}
+.rsvp-form input, .rsvp-form textarea{
+  padding:.7rem;
+  border:1px solid #ddd;
+  border-radius:8px;
+  margin-top:.2rem;
+}
+.form-actions{display:flex;justify-content:center;gap:.5rem;margin-top:.6rem;}
+.status{margin-top:.5rem;color:green;font-weight:600;}
 
-/* Footer */
-.footer { text-align:center; padding:1rem 0; opacity:.8; font-size:.95rem; }
+/* footer */
+.footer{text-align:center;padding:1rem;opacity:.6;}
 
-/* Responsive tweaks */
+/* ============================= */
+/* MOBILE FIXES */
+/* ============================= */
 @media (max-width:600px){
-  .hero { height: 60vh; min-height: 520px; }
-  .timer { gap:.5rem; }
-  .timer span { font-size:1.1rem; }
+  .timer span{font-size:1.1rem;}
+
+  .gallery-grid img { height:130px; }
+
+  .hero-content {
+    width: 90%;
+  }
 }
