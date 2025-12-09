@@ -43,9 +43,10 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
 }
 
 .names {
-  font-size: 50px;
   font-family: 'Pacifico';
+  font-size: clamp(24px, 8vw, 50px); /* min 24px, max 50px, co giãn theo 8% viewport width */
   margin-bottom: 30px;
+  text-align: center; /* căn giữa chữ */
 }
 
 .subtitle {
