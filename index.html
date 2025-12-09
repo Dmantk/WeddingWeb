@@ -23,39 +23,30 @@
         <div class="save-title">SAVE THE DATE</div>
         <div class="save-date">24-01-2026</div>
       </div>
-      <div class="buttons">
-        <a href="#rsvp" class="btn">Xác nhận tham dự</a>
-        <a href="#details" class="btn ghost">Thông tin</a>
+
+      <!-- Countdown đưa vào hero -->
+      <div class="hero-countdown">
+        <div class="timer">
+          <div><span id="days">0</span><small>Ngày</small></div>
+          <div><span id="hours">0</span><small>Giờ</small></div>
+          <div><span id="mins">0</span><small>Phút</small></div>
+          <div><span id="secs">0</span><small>Giây</small></div>
+        </div>
+
+        <div class="love-days">
+          <p>Đã yêu nhau: <strong id="lovendays">0</strong> ngày</p>
+        </div>
       </div>
-    </div>
-    <!-- Wave divider -->
-    <div class="wave-divider">
-      <svg class="wave" viewBox="0 0 500 150" preserveAspectRatio="none">
-        <path d="M0,50 
-                C60,150 110,-50 170,50
-                C230,150 285,-50 340,50
-                C395,150 450,-50 500,50
-                L500,150 L0,150 Z" />
-      </svg>
     </div>
   </header>
 
   <!-- Sections main -->
   <main>
-    <!-- Countdown + Day count -->
-    <section id="countdown" class="section center">
-      <h2>Đếm ngược tới lễ cưới</h2>
-      <div id="timer" class="timer">
-        <div><span id="days">0</span><small>Ngày</small></div>
-        <div><span id="hours">0</span><small>Giờ</small></div>
-        <div><span id="mins">0</span><small>Phút</small></div>
-        <div><span id="secs">0</span><small>Giây</small></div>
-      </div>
-
-      <div class="love-days">
-        <p>Đã yêu nhau: <strong id="lovendays">0</strong> ngày</p>
-      </div>
+    <section class="actions">
+      <button class="btn primary">Xác nhận tham dự</button>
+      <button class="btn secondary">Thông tin dự tiệc</button>
     </section>
+
 
     <!-- Details (thông tin lễ cưới) -->
     <section id="details" class="section cards">
@@ -127,50 +118,6 @@
   </main>
 
   <script src="assets/js/main.js"></script>
-
-  <!-- Countdown & Love Days Script -->
-  <script>
-    // ==== CONFIG NGÀY ====
-    // Ngày cưới (YYYY-MM-DD)
-    const weddingDate = new Date("2026-01-24T11:30:00");
-
-    // Ngày bắt đầu yêu nhau (YYYY-MM-DD)
-    const loveStartDate = new Date("2015-08-13T00:00:00");
-
-    // ==== COUNTDOWN TỚI NGÀY CƯỚI ====
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const target = weddingDate.getTime();
-      const diff = target - now;
-
-      if (diff <= 0) {
-        document.getElementById("days").innerText = 0;
-        document.getElementById("hours").innerText = 0;
-        document.getElementById("mins").innerText = 0;
-        document.getElementById("secs").innerText = 0;
-        return;
-      }
-
-      document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      document.getElementById("mins").innerText = Math.floor((diff / (1000 * 60)) % 60);
-      document.getElementById("secs").innerText = Math.floor((diff / 1000) % 60);
-    }
-
-    // ==== TÍNH NGÀY YÊU NHAU ====
-    function updateLoveDays() {
-      const now = new Date();
-      const diff = now - loveStartDate;
-
-      const loveDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-      document.getElementById("lovendays").innerText = loveDays;
-    }
-
-    // ==== CHẠY LIÊN TỤC ====
-    setInterval(updateCountdown, 1000);
-    updateLoveDays();
-    updateCountdown();
-  </script>
 
 </body>
 </html>

@@ -6,8 +6,8 @@
 */
 
 /* ==== Cấu hình: chỉnh các giá trị sau theo thực tế ==== */
-const WEDDING_DATE = new Date('2026-06-20T18:00:00'); // YYYY-MM-DDThh:mm:ss
-const LOVE_START_DATE = new Date('2016-06-01'); // ngày bắt đầu yêu nhau (để tính ngày yêu nhau)
+const WEDDING_DATE = new Date('2026-01-24T11:00:00'); // YYYY-MM-DDThh:mm:ss
+const LOVE_START_DATE = new Date('2015-08-13'); // ngày bắt đầu yêu nhau (để tính ngày yêu nhau)
 /* ==================================================== */
 
 /* Countdown */

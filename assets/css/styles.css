@@ -35,9 +35,9 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
 /* HERO CONTENT */
 .hero-content {
   position: absolute;
-  top: 55%;                /* CHỈNH: 75% → 55% */
+  top: 60%; /* chỉnh độ cao trên web */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -20%); /* chỉnh độ cao trên mobile */
   text-align: center;
   color: #fff;
 }
@@ -49,67 +49,50 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
   white-space: nowrap;
 }
 
-
 .subtitle {
   font-size: 2vw;       /* tự co theo chiều rộng màn hình */
   font-family: 'Gamja Flower';
-  margin-bottom: 16px;
+  margin-bottom: 15px;
 }
 
 .save-the-date-box {
   background: #c62828;
-  padding: 10px 22px;
+  padding: 8px 14px;
   border-radius: 12px;
   display: inline-block;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 2vw;
+
+
 }
 
 /* BUTTONS */
-.btn {
-  display: inline-block;
-  padding: 0.55rem 1rem;
-  background: #f6c85f;
-  color:#222;
-  border-radius: 15px;
-  text-decoration: none;
-  margin: 0 .25rem;
-  font-weight: 600;
-  font-size: 2vw;
-}
-.btn.ghost {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.6);
-  color: #fff;
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
-/* ============================
-   WAVE
-============================ */
-.wave-divider {
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  margin-top: -5px;                 /* CHỈNH: bỏ 880px → -5px để sóng khớp mép */
-  position: absolute;
-  bottom: 0;       /* sát đáy hero */
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
+.actions .btn {
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
 }
 
-.wave {
-  width: 300%;
-  height: 90px;
-  animation: waveMove 8s linear infinite;
+.actions .primary {
+    background: #d34d55;
+    color: white;
 }
-.wave path { fill: #ffffff; }
 
-@keyframes waveMove {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+.actions .secondary {
+    background: white;
+    border: 2px solid #d34d55;
+    color: #d34d55;
 }
+
 
 /* ============================
    CONTENT SECTIONS
