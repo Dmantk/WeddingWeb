@@ -29,17 +29,17 @@
       </div>
     </div>
     <!-- Wave divider -->
-    <div class="wave-divider">
+    <div class="wave-container">
       <svg class="wave" viewBox="0 0 500 150" preserveAspectRatio="none">
-        <path d="M0,50 
-                C60,150 110,-50 170,50
-                C230,150 285,-50 340,50
-                C395,150 450,-50 500,50
+        <path d="M0,50   
+                C60,150 110,-50 170,50  
+                C230,150 285,-50 340,50  
+                C395,150 450,-50 500,50  
                 L500,150 L0,150 Z" />
       </svg>
     </div>
   </header>
-
+  
   <!-- Sections main -->
   <main>
     <!-- Countdown + Day count -->
@@ -51,12 +51,12 @@
         <div><span id="mins">0</span><small>Phút</small></div>
         <div><span id="secs">0</span><small>Giây</small></div>
       </div>
-
+  
       <div class="love-days">
         <p>Đã yêu nhau: <strong id="lovendays">0</strong> ngày</p>
       </div>
     </section>
-
+  
     <!-- Details (thông tin lễ cưới) -->
     <section id="details" class="section cards">
       <article class="card">
@@ -70,7 +70,7 @@
             style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </article>
-
+  
       <article class="card">
         <h3>Lịch trình</h3>
         <ul>
@@ -80,7 +80,7 @@
         </ul>
       </article>
     </section>
-
+  
     <!-- Gallery -->
     <section id="gallery" class="section center">
       <h2>Ảnh kỷ niệm</h2>
@@ -90,7 +90,7 @@
         <img src="assets/images/gallery3.jpg" alt="gallery3" />
       </div>
     </section>
-
+  
     <!-- RSVP Form -->
     <section id="rsvp" class="section center">
       <h2>RSVP — Xác nhận tham dự</h2>
@@ -119,30 +119,30 @@
         <p id="formStatus" class="status"></p>
       </form>
     </section>
-
+  
     <!-- Footer -->
     <footer class="footer">
       <p>© Minh Ân & Thu Kha — Cảm ơn mọi người</p>
     </footer>
   </main>
-
+  
   <script src="assets/js/main.js"></script>
-
+  
   <!-- Countdown & Love Days Script -->
   <script>
     // ==== CONFIG NGÀY ====
     // Ngày cưới (YYYY-MM-DD)
     const weddingDate = new Date("2026-01-24T11:30:00");
-
+  
     // Ngày bắt đầu yêu nhau (YYYY-MM-DD)
     const loveStartDate = new Date("2015-08-13T00:00:00");
-
+  
     // ==== COUNTDOWN TỚI NGÀY CƯỚI ====
     function updateCountdown() {
       const now = new Date().getTime();
       const target = weddingDate.getTime();
       const diff = target - now;
-
+  
       if (diff <= 0) {
         document.getElementById("days").innerText = 0;
         document.getElementById("hours").innerText = 0;
@@ -150,27 +150,27 @@
         document.getElementById("secs").innerText = 0;
         return;
       }
-
+  
       document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
       document.getElementById("hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
       document.getElementById("mins").innerText = Math.floor((diff / (1000 * 60)) % 60);
       document.getElementById("secs").innerText = Math.floor((diff / 1000) % 60);
     }
-
+  
     // ==== TÍNH NGÀY YÊU NHAU ====
     function updateLoveDays() {
       const now = new Date();
       const diff = now - loveStartDate;
-
+  
       const loveDays = Math.floor(diff / (1000 * 60 * 60 * 24));
       document.getElementById("lovendays").innerText = loveDays;
     }
-
+  
     // ==== CHẠY LIÊN TỤC ====
     setInterval(updateCountdown, 1000);
     updateLoveDays();
     updateCountdown();
   </script>
-
+  
 </body>
 </html>
