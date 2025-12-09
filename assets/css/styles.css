@@ -43,14 +43,15 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
 }
 
 .names {
-  font-family: 'Pacifico';
-  font-size: clamp(24px, 8vw, 50px); /* min 24px, max 50px, co giãn theo 8% viewport width */
-  margin-bottom: 30px;
-  text-align: center; /* căn giữa chữ */
+  font-family: 'Pacifico', cursive;
+  font-size: 3vw;       /* tự co theo chiều rộng màn hình */
+  text-align: center;
+  white-space: nowrap;
 }
 
+
 .subtitle {
-  font-size: 22px;
+  font-size: 2vw;       /* tự co theo chiều rộng màn hình */
   font-family: 'Gamja Flower';
   margin-bottom: 16px;
 }
@@ -61,6 +62,7 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
   border-radius: 12px;
   display: inline-block;
   margin-bottom: 40px;
+  font-size: 2vw;
 }
 
 /* BUTTONS */
@@ -69,10 +71,11 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
   padding: 0.55rem 1rem;
   background: #f6c85f;
   color:#222;
-  border-radius: 10px;
+  border-radius: 15px;
   text-decoration: none;
   margin: 0 .25rem;
   font-weight: 600;
+  font-size: 2vw;
 }
 .btn.ghost {
   background: transparent;
@@ -88,6 +91,12 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
   overflow: hidden;
   line-height: 0;
   margin-top: -5px;                 /* CHỈNH: bỏ 880px → -5px để sóng khớp mép */
+  position: absolute;
+  bottom: 0;       /* sát đáy hero */
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
 }
 
 .wave {
