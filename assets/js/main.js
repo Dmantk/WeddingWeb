@@ -35,6 +35,34 @@ function updateLoveDays(){
 }
 updateLoveDays();
 
+/* ######################### trái tim rơi ########################### */
+function createFallingHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("falling-heart");
+    heart.innerHTML = "❤";
+
+    // vị trí xuất phát ngẫu nhiên trên chiều ngang
+    heart.style.left = Math.random() * 100 + "vw";
+
+    // kích thước trái tim (từ 12px đến 28px)
+    heart.style.fontSize = (12 + Math.random() * 16) + "px";
+
+    // thời gian rơi (3s đến 7s)
+    const duration = 3 + Math.random() * 4;
+    heart.style.animationDuration = duration + "s";
+
+    document.body.appendChild(heart);
+
+    // xóa trái tim sau khi kết thúc animation
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+// cứ mỗi 300–600ms tạo 1 trái tim
+setInterval(createFallingHeart, 1500);
+/* ####################################################### */
+
 /* RSVP form xử lý */
 const form = document.getElementById('rsvpForm');
 const status = document.getElementById('formStatus');
