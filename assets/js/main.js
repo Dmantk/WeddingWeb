@@ -64,32 +64,39 @@ setInterval(createFallingHeart, 1500);
 /* ####################################################### */
 
 /* ######################### button nhac ########################### */
-const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
-const icon = document.getElementById("musicIcon");
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("music-btn");
 
-// Autoplay khi vào web
-window.addEventListener("DOMContentLoaded", () => {
-  music.play().catch(() => {
-    // Một số trình duyệt chặn autoplay nếu chưa tương tác
-    console.log("Autoplay bị chặn, sẽ phát sau khi người dùng click");
-  });
+let firstInteraction = false;
 
-  icon.classList.add("spin");
+// Khi người dùng chạm/lướt/click lần đầu → bật nhạc
+const enableMusic = () => {
+    if (!firstInteraction) {
+        music.play().then(() => {
+            btn.classList.remove("paused");
+            firstInteraction = true;
+        }).catch(() => {
+            console.log("Browser blocked autoplay");
+        });
+    }
+};
+
+window.addEventListener("click", enableMusic);
+window.addEventListener("touchstart", enableMusic);
+window.addEventListener("scroll", enableMusic);  // chỉ cần cuộn trang là phát
+
+// Khi bấm nút → bật/tắt nhạc
+btn.addEventListener("click", (e) => {
+    e.stopPropagation(); // tránh click kích hoạt enableMusic
+    if (music.paused) {
+        music.play();
+        btn.classList.remove("paused");
+    } else {
+        music.pause();
+        btn.classList.add("paused");
+    }
 });
 
-// Toggle nhạc
-btn.addEventListener("click", () => {
-  if (music.paused) {
-    music.play();
-    icon.classList.add("spin");
-    icon.classList.remove("muted");
-  } else {
-    music.pause();
-    icon.classList.remove("spin");
-    icon.classList.add("muted");
-  }
-});
 /* ####################################################### */
 
 /* ######################### button ########################### */

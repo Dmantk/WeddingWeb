@@ -97,40 +97,39 @@ header {
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
+  z-index: 9999;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(6px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.music-btn img {
+/* Icon đĩa */
+#disc-icon {
   width: 40px;
   height: 40px;
-  transition: .3s ease;
+  animation: spinDisc 4s linear infinite;
+  animation-play-state: running;     /* QUAN TRỌNG */
 }
 
-/* Đĩa quay */
-.spin {
-  animation: rotateDisc 3s linear infinite;
+/* Khi tắt nhạc — icon dừng xoay */
+.music-btn.paused #disc-icon {
+  animation-play-state: paused;      /* QUAN TRỌNG */
+  opacity: .5;
 }
 
-@keyframes rotateDisc {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Animation quay */
+@keyframes spinDisc {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
-/* Icon bị tắt tiếng */
-.muted {
-  filter: grayscale(100%) brightness(70%);
-  opacity: 0.6;
-}
 
 
 /* ============================
