@@ -4,6 +4,10 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; color:#222; }
 
+header {
+  position: relative;
+}
+
 /* ============================
    HERO
 ============================ */
@@ -31,8 +35,48 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
   position: absolute; inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
 }
+/* ============================
+   BEAUTIFUL HEART BADGE
+============================ */
 
-/* HERO CONTENT */
+.love-heart {
+  position: absolute;
+  top: -40%;     /* chỉnh vị trí tùy ý */
+  left: -40%;
+  margin-top: 18px;
+  text-align: center;
+  position: relative;
+  width: 110px;
+  height: 100px;
+  margin: 0 auto;
+  background: radial-gradient(circle at 50% 50%, #c21625, #f14761);
+  clip-path: path("M55 95 L10 55 A25 25 0 0 1 55 15 A25 25 0 0 1 100 55 Z");
+  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heartBeat 1s infinite ease-in-out;
+}
+
+/* Hiệu ứng đập tim nhẹ nhàng */
+@keyframes heartBeat {
+  0%   { transform: scale(0.5); }
+  50%  { transform: scale(0.7); }
+  100% { transform: scale(0.5); }
+}
+
+.love-heart span {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  transform: translateY(-8px); /* ĐẨY SỐ LÊN TRÊN */
+  text-shadow: 0 0 6px rgba(0,0,0,0.35);
+}
+
+
+/* ============================
+   HERO CONTENT
+============================ */
 .hero-content {
   position: absolute;
   top: 60%; /* chỉnh độ cao trên web */
@@ -66,7 +110,9 @@ html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; col
 
 }
 
-/* BUTTONS */
+/* ============================
+   BUTTON
+============================ */
 .actions {
     margin-top: 20px;
     display: flex;
