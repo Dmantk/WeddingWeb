@@ -63,6 +63,45 @@ function createFallingHeart() {
 setInterval(createFallingHeart, 1500);
 /* ####################################################### */
 
+/* ######################### button nhac ########################### */
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+const icon = document.getElementById("musicIcon");
+
+// Autoplay khi vào web
+window.addEventListener("DOMContentLoaded", () => {
+  music.play().catch(() => {
+    // Một số trình duyệt chặn autoplay nếu chưa tương tác
+    console.log("Autoplay bị chặn, sẽ phát sau khi người dùng click");
+  });
+
+  icon.classList.add("spin");
+});
+
+// Toggle nhạc
+btn.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    icon.classList.add("spin");
+    icon.classList.remove("muted");
+  } else {
+    music.pause();
+    icon.classList.remove("spin");
+    icon.classList.add("muted");
+  }
+});
+/* ####################################################### */
+
+/* ######################### button ########################### */
+document.getElementById("btnWishes").addEventListener("click", function() {
+  document.getElementById("wish-section").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("btnGallery").addEventListener("click", function() {
+  document.getElementById("gallery-section").scrollIntoView({ behavior: "smooth" });
+});
+/* ####################################################### */
+
 /* RSVP form xử lý */
 const form = document.getElementById('rsvpForm');
 const status = document.getElementById('formStatus');

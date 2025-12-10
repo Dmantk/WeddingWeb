@@ -57,7 +57,7 @@ header {
   animation: heartBeat 1s infinite ease-in-out;
 }
 
-/* Tim đập */
+/* ------------tim đập---------- */
 @keyframes heartBeat {
   0%   { transform: scale(0.55) }
   50%  { transform: scale(0.60) }
@@ -70,11 +70,12 @@ header {
   font-weight: 700;
   transform: translateY(-8px);
 }
-/* tim rơi */
+/* ------------------------ */
+/* -----------tim rơi----------- */
 .falling-heart {
     position: fixed;
     top: -50px;
-    color: #ff6b81;
+    color: #eb0124;
     font-size: 20px;
     pointer-events: none;
     z-index: 9999;
@@ -88,7 +89,48 @@ header {
         opacity: 0;
     }
 }
+/* ------------------------ */
+/* ===========================
+   MUSIC BUTTON (FIXED)
+===========================*/
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+}
 
+.music-btn img {
+  width: 40px;
+  height: 40px;
+  transition: .3s ease;
+}
+
+/* Đĩa quay */
+.spin {
+  animation: rotateDisc 3s linear infinite;
+}
+
+@keyframes rotateDisc {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Icon bị tắt tiếng */
+.muted {
+  filter: grayscale(100%) brightness(70%);
+  opacity: 0.6;
+}
 
 
 /* ============================

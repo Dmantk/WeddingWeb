@@ -20,6 +20,14 @@
     <div class="love-heart">
       <span id="lovendays">0</span>
     </div>
+    <!-- Music Toggle Button -->
+    <div class="music-btn" id="musicBtn">
+        <img id="musicIcon" src="assets/images/guitar.png" alt="music">
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/music/Sugar.mp3" type="audio/mp3">
+    </audio>
     <!-- CONTEXT FOR HERO -->
     <div class="hero-content">
       <h1 class="names">Minh An & Thu Kha</h1>
@@ -42,11 +50,18 @@
 
   <!-- Sections main -->
   <main>
-    <section class="actions">
-      <button class="btn primary">Xác nhận tham dự</button>
-      <button class="btn secondary">Thông tin dự tiệc</button>
+    <section id="wishes" class="actions">
+      <button class="btn primary" id="btnWishes">Gửi lời chúc</button>
+      <button class="btn secondary" id="btnGallery">Ảnh của tụi mình nè!</button>
     </section>
 
+    <section id="wish-section">
+      <!-- nội dung lời chúc -->
+    </section>
+
+    <section id="gallery-section">
+      <!-- nội dung gallery -->
+    </section>
 
     <!-- Details (thông tin lễ cưới) -->
     <section id="details" class="section cards">
