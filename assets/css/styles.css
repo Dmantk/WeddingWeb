@@ -330,7 +330,92 @@ header {
   .save-title { font-size: 32px; }
   .couple-name { font-size: 36px; }
 }
+/* ===========================================================================
+     SAVE THE DATE SECTION
+   =========================================================================== */
+.invitation-section {
+    display: grid;
+    gap: 25px;
+    padding: 20px;
+}
 
+/* Màn hình rộng → Hai thẻ nằm cạnh nhau */
+@media (min-width: 860px) {
+    .invitation-section {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.invite-card {
+    background: #7c0a0a;
+    border-radius: 70px;
+    padding: 25px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    max-width: 700px;   /* chỉnh bề ngang tối đa của hình chữ nhật */
+    width: 90%;         /* tự co khi màn hình nhỏ */
+    margin: 0.5rem auto; 
+}
+
+.invite-card .title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.invite-card .subtitle {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.invite-card .date {
+    font-size: 36px;
+    color: #ffeb3b;
+    font-weight: 700;
+    margin: 10px 0;
+    /* FIX CĂN GIỮA CHUẨN */
+    width: 85%;
+    text-align: center;
+    display: block;
+    letter-spacing: 3px; /* giúp dàn đều giống hình mẫu */
+}
+
+
+.invite-card .lunar {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.invite-card .place-title {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.invite-card .address {
+    font-size: 15px;
+    opacity: 0.95;
+    margin-bottom: 20px;
+}
+
+.map-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    color: #7c0a0a;
+    font-weight: 600;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: 0.2s;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.map-btn:hover {
+    background: #ffe3e3;
+}
 
 
 /* ============================
