@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Header / Hero -->
@@ -46,82 +48,58 @@
     </div>
   </header>
 
-  <!-- Sections main -->
+  <!-- ################################### main ################################### -->
   <main>
     <section id="wishes" class="actions">
       <button class="btn primary" id="btnWishes">Gửi lời chúc</button>
       <button class="btn secondary" id="btnGallery">Ảnh của tụi mình nè!</button>
     </section>
 
+    <!-- =========================================
+     SAVE THE DATE SECTION (Thông tin gia đình)
+     ========================================= -->
+    <section class="save-date-section">
+
+      <div class="save-the-date">
+        <span class="line save">SAVE</span>
+        <span class="line the">the</span>
+        <span class="line date">DATE</span>
+      </div>
+
+      <div class="families">
+        <div class="family left">
+          <h3>Nhà trai</h3>
+          <p>Ông. Dương Viết Tảo</p>
+          <p>Bà. Trần Thị Tiên</p>
+          <p>TP. Đà Nẵng</p>
+        </div>
+        <div class="divider"></div>
+        <div class="family right">
+          <h3>Nhà gái</h3>
+          <p>Ông. Nguyễn Cảnh</p>
+          <p>Bà. Võ Thị Thu Hoa</p>
+          <p>TP. Đà Nẵng</p>
+        </div>
+      </div>
+      <p class="invite-text">
+        Thân mời đến dự lễ thành hôn của chúng mình!
+      </p>
+      <h2 class="couple-name">Minh Ân <br>&amp;<br> Thu Kha</h2>
+    </section>
+
+
     <section id="wish-section">
       <!-- nội dung lời chúc -->
     </section>
 
-    <section id="gallery-section">
-      <!-- nội dung gallery -->
-    </section>
-
-    <!-- Details (thông tin lễ cưới) -->
-    <section id="details" class="section cards">
-      <article class="card">
-        <h3>Thời gian & Địa điểm</h3>
-        <p><strong>Tiệc chính:</strong> 18:00 - 21:00</p>
-        <p><strong>Địa chỉ:</strong> Nhà hàng XYZ, Hà Nội</p>
-        <!-- Google Maps embed - thẻ iframe, thay src bằng link của bạn -->
-        <div class="map-wrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!..."
-            style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Lịch trình</h3>
-        <ul>
-          <li>17:00 - Đón khách</li>
-          <li>18:00 - Lễ chính</li>
-          <li>19:00 - Tiệc & Games</li>
-        </ul>
-      </article>
-    </section>
-
     <!-- Gallery -->
-    <section id="gallery" class="section center">
+    <section id="gallery-section" class="section center">
       <h2>Ảnh kỷ niệm</h2>
       <div class="gallery-grid">
         <img src="assets/images/gallery1.jpg" alt="gallery1" />
         <img src="assets/images/gallery2.jpg" alt="gallery2" />
         <img src="assets/images/gallery3.jpg" alt="gallery3" />
       </div>
-    </section>
-
-    <!-- RSVP Form -->
-    <section id="rsvp" class="section center">
-      <h2>RSVP — Xác nhận tham dự</h2>
-      <form id="rsvpForm" class="rsvp-form">
-        <label>
-          Họ tên
-          <input type="text" name="name" id="name" required />
-        </label>
-        <label>
-          Số điện thoại / Email
-          <input type="text" name="contact" id="contact" required />
-        </label>
-        <label>
-          Số khách
-          <input type="number" name="guests" id="guests" min="1" value="1" />
-        </label>
-        <label>
-          Lời nhắn (tuỳ chọn)
-          <textarea name="message" id="message"></textarea>
-        </label>
-        <div class="form-actions">
-          <!-- Nút này sẽ gửi mail (mailto) nếu bạn chưa xài backend -->
-          <button type="submit" class="btn">Gửi RSVP</button>
-          <button type="button" id="saveLocal" class="btn ghost">Lưu cục bộ</button>
-        </div>
-        <p id="formStatus" class="status"></p>
-      </form>
     </section>
 
     <!-- Footer -->
