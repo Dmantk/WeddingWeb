@@ -108,45 +108,106 @@ document.getElementById("btnGallery").addEventListener("click", function() {
   document.getElementById("gallery-section").scrollIntoView({ behavior: "smooth" });
 });
 /* ####################################################### */
+/* ###########################Album########################### */
+const thumbs = document.querySelectorAll('.gallery-thumbs img');
+const mainImage = document.getElementById('mainImage');
 
-/* RSVP form xử lý */
-const form = document.getElementById('rsvpForm');
-const status = document.getElementById('formStatus');
+let currentIndex = 0;
+let thumbIndex = 0;
+const visibleThumbs = 5;
+const thumbWidth = 90; // ảnh + gap
 
-form.addEventListener('submit', function(e){
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const contact = document.getElementById('contact').value.trim();
-  const guests = document.getElementById('guests').value;
-  const message = document.getElementById('message').value.trim();
-
-  // Lưu vào localStorage (ví dụ)
-  const entry = { name, contact, guests, message, time: new Date().toISOString() };
-  const key = 'rsvp_list';
-  let list = JSON.parse(localStorage.getItem(key) || '[]');
-  list.push(entry);
-  localStorage.setItem(key, JSON.stringify(list));
-
-  // Mailto fallback: mở app mail mặc định (người dùng có thể gửi)
-  const subject = encodeURIComponent(`RSVP: ${name} - ${guests} khách`);
-  const body = encodeURIComponent(`Họ tên: ${name}\nContact: ${contact}\nSố khách: ${guests}\nLời nhắn: ${message}`);
-  window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
-
-  status.textContent = 'Đã lưu cục bộ và mở mail để gửi (hoặc copy nội dung và gửi cho chúng tôi).';
+// Click thumbnail
+thumbs.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    setActive(index);
+  });
 });
 
-/* Lưu cục bộ nhanh (nút riêng) */
-document.getElementById('saveLocal').addEventListener('click', function(){
-  const name = document.getElementById('name').value.trim();
-  const contact = document.getElementById('contact').value.trim();
-  const guests = document.getElementById('guests').value;
-  const message = document.getElementById('message').value.trim();
-  if(!name || !contact){ status.textContent = 'Vui lòng nhập họ tên và contact.'; return; }
+// Nút ảnh lớn
+document.querySelector('.gallery-main .prev').onclick = () => {
+  setActive((currentIndex - 1 + thumbs.length) % thumbs.length);
+};
 
-  const entry = { name, contact, guests, message, time: new Date().toISOString() };
-  const key = 'rsvp_list';
-  let list = JSON.parse(localStorage.getItem(key) || '[]');
-  list.push(entry);
-  localStorage.setItem(key, JSON.stringify(list));
-  status.textContent = 'Đã lưu RSVP cục bộ (localStorage).';
-});
+document.querySelector('.gallery-main .next').onclick = () => {
+  setActive((currentIndex + 1) % thumbs.length);
+};
+
+// Nút thumbnail
+document.querySelector('.thumb-nav.next').onclick = () => {
+  if (thumbIndex < thumbs.length - visibleThumbs) {
+    thumbIndex++;
+    updateThumbPosition();
+  }
+};
+
+document.querySelector('.thumb-nav.prev').onclick = () => {
+  if (thumbIndex > 0) {
+    thumbIndex--;
+    updateThumbPosition();
+  }
+};
+
+function setActive(index) {
+  thumbs[currentIndex].classList.remove('active');
+  currentIndex = index;
+  thumbs[currentIndex].classList.add('active');
+  mainImage.src = thumbs[currentIndex].src;
+
+  if (currentIndex < thumbIndex) thumbIndex = currentIndex;
+  if (currentIndex >= thumbIndex + visibleThumbs) {
+    thumbIndex = currentIndex - visibleThumbs + 1;
+  }
+  updateThumbPosition();
+}
+
+function updateThumbPosition() {
+  document.getElementById('thumbs').style.transform =
+    `translateX(-${thumbIndex * thumbWidth}px)`;
+}
+
+/* LIGHTBOX */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+mainImage.onclick = () => {
+  lightboxImg.src = mainImage.src;
+  lightbox.style.display = 'flex';
+};
+
+lightbox.onclick = () => {
+  lightbox.style.display = 'none';
+};
+
+
+
+
+/* ########################WISH SECTION################### */
+function sendWish() {
+  const name = document.getElementById('wishName').value.trim();
+  const message = document.getElementById('wishMessage').value.trim();
+  const alertBox = document.getElementById('wishAlert');
+
+  if (!name || !message) {
+    alertBox.style.color = 'red';
+    alertBox.textContent = '⚠️ Vui lòng nhập đầy đủ tên và lời chúc nhé!';
+    return;
+  }
+
+  /* 👉 CHỖ NÀY SẼ GẮN GOOGLE SHEET / BACKEND */
+  console.log({ name, message });
+
+  alertBox.style.color = 'green';
+  alertBox.textContent = '💖 Tụi mình cảm ơn nha!';
+
+  document.getElementById('wishName').value = '';
+  document.getElementById('wishMessage').value = '';
+}
+
+function openQR() {
+  document.getElementById('qrPopup').style.display = 'flex';
+}
+
+function closeQR() {
+  document.getElementById('qrPopup').style.display = 'none';
+}

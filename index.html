@@ -68,28 +68,44 @@
 
       <div class="families">
         <div class="family left">
-          <h3>Nhà trai</h3>
-          <p>Ông. Dương Viết Tảo</p>
-          <p>Bà. Trần Thị Tiên</p>
+          <h3>Nhà gái</h3>
+          <p>Ông. Nguyễn Cảnh</p>
+          <p>Bà. Võ Thị Thu Hoa</p>
           <p>TP. Đà Nẵng</p>
         </div>
         <div class="divider"></div>
         <div class="family right">
-          <h3>Nhà gái</h3>
-          <p>Ông. Nguyễn Cảnh</p>
-          <p>Bà. Võ Thị Thu Hoa</p>
+          <h3>Nhà trai</h3>
+          <p>Ông. Dương Viết Tảo</p>
+          <p>Bà. Trần Thị Tiên</p>
           <p>TP. Đà Nẵng</p>
         </div>
       </div>
       <p class="invite-text">
         Thân mời đến dự lễ thành hôn của chúng mình!
       </p>
-      <h2 class="couple-name">Minh Ân <br>&amp;<br> Thu Kha</h2>
+      <h2 class="couple-name">Thu Kha <br>&amp;<br>Minh Ân </h2>
     </section>
     <!-- =========================================
      INVITATION CARD (Thiệp thông tin nhà hàng)
      ========================================= -->
     <section class="invitation-section">
+            
+      <!-- Thiệp nhà gái -->
+      <div class="card invite-card">
+          <h2 class="title">TIỆC CƯỚI NHÀ GÁI</h2>
+          <p class="subtitle">CHỦ NHẬT - 10:30</p>
+
+          <p class="date">18 . 01 . 2026</p>
+          <p class="lunar">Tức Ngày 30 tháng 11 năm Ất Tỵ</p>
+
+          <h3 class="place-title">TẠI NHÀ HÀNG PHƯƠNG THY</h3>
+          <p class="address">494 Tiểu La - Thăng Bình - TP.Đà Nẵng</p>
+
+          <a class="map-btn" href="https://maps.app.goo.gl/N9VqMQYYeVvaipXR8" target="_blank">
+              Xem chỉ đường
+          </a>
+      </div>
 
       <!-- Thiệp nhà trai -->
       <div class="card invite-card">
@@ -107,37 +123,77 @@
           </a>
       </div>
 
-      <!-- Thiệp nhà gái -->
-      <div class="card invite-card">
-          <h2 class="title">TIỆC CƯỚI NHÀ GÁI</h2>
-          <p class="subtitle">CHỦ NHẬT - 10:30</p>
-
-          <p class="date">18 . 01 . 2026</p>
-          <p class="lunar">Tức Ngày 30 tháng 11 năm Ất Tỵ</p>
-
-          <h3 class="place-title">TẠI NHÀ HÀNG PHƯƠNG THY</h3>
-          <p class="address">494 Tiểu La - Thăng Bình - TP.Đà Nẵng</p>
-
-          <a class="map-btn" href="https://maps.app.goo.gl/N9VqMQYYeVvaipXR8" target="_blank">
-              Xem chỉ đường
-          </a>
-      </div>
-
     </section>
 
-    <!-- Gallery -->
     <section id="gallery-section" class="section center">
       <h2>Ảnh kỷ niệm</h2>
-      <div class="gallery-grid">
-        <img src="assets/images/Pic1.jpg" alt="gallery1" />
-        <img src="assets/images/Pic2.jpg" alt="gallery2" />
-        <img src="assets/images/Pic3.jpg" alt="gallery3" />
+
+      <div class="gallery-slider">
+
+        <!-- ẢNH LỚN -->
+        <div class="gallery-main">
+          <button class="nav prev">‹</button>
+          <img id="mainImage" src="assets/images/pic1.webp" alt="main">
+          <button class="nav next">›</button>
+        </div>
+
+        <!-- THUMBNAILS -->
+        <div class="gallery-thumbs-wrapper">
+          <button class="thumb-nav prev">‹</button>
+
+          <div class="gallery-thumbs" id="thumbs">
+            <!-- Bạn có thể thêm 30–40 ảnh tùy ý -->
+            <img src="assets/images/pic1.webp" class="active">
+            <img src="assets/images/pic2.webp">
+            <img src="assets/images/pic3.webp">
+            <img src="assets/images/pic4.webp">
+            <img src="assets/images/pic5.webp">
+            <img src="assets/images/pic6.webp">
+            <img src="assets/images/pic7.webp">
+          </div>
+
+          <button class="thumb-nav next">›</button>
+        </div>
+
       </div>
     </section>
 
-    <section id="wish-section">
-      <!-- nội dung lời chúc -->
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+      <img id="lightbox-img">
+    </div>
+
+
+    <section id="wish-section" class="section center">
+      <h2>Gửi lời chúc</h2>
+
+      <div class="wish-box">
+        <input type="text" id="wishName" placeholder="Tên của bạn ✍️">
+
+        <textarea id="wishMessage" rows="4"
+          placeholder="Lời chúc dành cho cô dâu & chú rể 💕"></textarea>
+
+        <div class="wish-actions">
+          <button class="btn-send" onclick="sendWish()">Gửi lời chúc</button>
+          <button class="btn-qr" onclick="openQR()">Mã QR mừng cưới</button>
+        </div>
+
+        <p id="wishAlert" class="wish-alert"></p>
+      </div>
     </section>
+
+    <!-- POPUP QR -->
+    <div id="qrPopup" class="qr-popup">
+      <div class="qr-content">
+        <span class="close" onclick="closeQR()">×</span>
+
+        <img src="assets/images/qr.webp">
+        <p><strong>Chủ tài khoản:</strong> Nguyễn Văn A</p>
+        <p><strong>STK:</strong> 1234 5678 999</p>
+        <p><strong>Ngân hàng:</strong> Vietcombank</p>
+      </div>
+    </div>
+
 
     <!-- Footer -->
     <footer class="footer">
