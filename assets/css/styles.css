@@ -631,10 +631,18 @@ header {
   padding: 25px 20px;
   max-width: 700px;
   width: 100%;
+
   display: flex;
-  gap: 20px;
+  flex-direction: row;     /* LUÔN ngang */
+  flex-wrap: nowrap;       /* KHÔNG cho xuống dòng */
+  gap: 16px;
+
+  overflow-x: auto;        /* VUỐT NGANG */
+  -webkit-overflow-scrolling: touch;
+
   position: relative;
 }
+
 
 .qr-close {
   position: absolute;
@@ -668,12 +676,6 @@ header {
   font-weight: 500;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  .qr-wrapper {
-    flex-direction: column;
-  }
-}
 
 
 /* ============================
