@@ -183,6 +183,9 @@ lightbox.onclick = () => {
 
 
 /* ########################WISH SECTION################### */
+const GOOGLE_SHEET_API =
+  "https://script.google.com/macros/s/AKfycbx9-hZAhJvikU1uzXtTZg8VsXjntRKsh8WTmgg7plqsYH4r-HqEaj8KuAT_hF2phTq3/exec";
+
 function sendWish() {
   const name = document.getElementById('wishName').value.trim();
   const message = document.getElementById('wishMessage').value.trim();
@@ -194,15 +197,24 @@ function sendWish() {
     return;
   }
 
-  /* 👉 CHỖ NÀY SẼ GẮN GOOGLE SHEET / BACKEND */
-  console.log({ name, message });
+  fetch(GOOGLE_SHEET_API, {
+    method: "POST",
+    body: JSON.stringify({ name, message })
+  })
+    .then(res => res.json())
+    .then(() => {
+      alertBox.style.color = 'green';
+      alertBox.textContent = '💖 Tụi mình cảm ơn nha!';
 
-  alertBox.style.color = 'green';
-  alertBox.textContent = '💖 Tụi mình cảm ơn nha!';
-
-  document.getElementById('wishName').value = '';
-  document.getElementById('wishMessage').value = '';
+      document.getElementById('wishName').value = '';
+      document.getElementById('wishMessage').value = '';
+    })
+    .catch(() => {
+      alertBox.style.color = 'red';
+      alertBox.textContent = '❌ Gửi chưa thành công, thử lại nhé!';
+    });
 }
+/* ######################## QR ################### */
 
 function openQR() {
   document.getElementById('qrPopup').style.display = 'flex';
@@ -211,3 +223,4 @@ function openQR() {
 function closeQR() {
   document.getElementById('qrPopup').style.display = 'none';
 }
+
