@@ -37,30 +37,38 @@ updateLoveDays();
 
 /* ######################### trái tim rơi ########################### */
 function createFallingHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("falling-heart");
-    heart.innerHTML = "❤";
+  const heart = document.createElement("div");
+  heart.className = "falling-heart";
+  heart.innerHTML = "💍";
 
-    // vị trí xuất phát ngẫu nhiên trên chiều ngang
-    heart.style.left = Math.random() * 100 + "vw";
+  /* vị trí bắt đầu */
+  heart.style.left = Math.random() * 100 + "vw";
 
-    // kích thước trái tim (từ 12px đến 28px)
-    heart.style.fontSize = (12 + Math.random() * 16) + "px";
+  /* size */
+  const size = 12 + Math.random() * 18;
+  heart.style.fontSize = size + "px";
 
-    // thời gian rơi (3s đến 7s)
-    const duration = 3 + Math.random() * 4;
-    heart.style.animationDuration = duration + "s";
+  /* random biến động */
+  const fallDuration = 6 + Math.random() * 6;     // 6–12s
+  const swayDuration = 3 + Math.random() * 3;     // 3–6s
+  const rotateDuration = 4 + Math.random() * 4;   // 4–8s
+  const swayDistance = (Math.random() * 60 - 30) + "px"; // trái / phải
+  const rotateAngle = (Math.random() * 40 - 20) + "deg";
 
-    document.body.appendChild(heart);
+  heart.style.setProperty("--fall-duration", fallDuration + "s");
+  heart.style.setProperty("--sway-duration", swayDuration + "s");
+  heart.style.setProperty("--rotate-duration", rotateDuration + "s");
+  heart.style.setProperty("--sway-distance", swayDistance);
+  heart.style.setProperty("--rotate-angle", rotateAngle);
 
-    // xóa trái tim sau khi kết thúc animation
-    setTimeout(() => {
-        heart.remove();
-    }, duration * 1000);
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), fallDuration * 1000);
 }
 
-// cứ mỗi 300–600ms tạo 1 trái tim
-setInterval(createFallingHeart, 1500);
+/* tạo nhẹ nhàng – không quá dày */
+setInterval(createFallingHeart, 900);
+
 /* ####################################################### */
 
 /* ######################### button nhac ########################### */

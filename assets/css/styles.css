@@ -73,22 +73,46 @@ header {
 /* ------------------------ */
 /* -----------tim rơi----------- */
 .falling-heart {
-    position: fixed;
-    top: -50px;
-    color: #eb0124;
-    font-size: 20px;
-    pointer-events: none;
-    z-index: 9999;
-    animation: fall linear forwards;
-    filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
+  position: fixed;
+  top: -60px;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  color: #eb0124;
+  font-size: 20px;
+  opacity: 0.9;
+
+  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.25));
+
+  animation:
+    fall var(--fall-duration) linear forwards,
+    sway var(--sway-duration) ease-in-out infinite,
+    rotate var(--rotate-duration) ease-in-out infinite;
 }
 
+/* RƠI XUỐNG */
 @keyframes fall {
-    to {
-        transform: translateY(120vh);
-        opacity: 0;
-    }
+  to {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
 }
+
+/* GIÓ THỔI QUA LẠI */
+@keyframes sway {
+  0%   { margin-left: 0; }
+  50%  { margin-left: var(--sway-distance); }
+  100% { margin-left: 0; }
+}
+
+/* XOAY NHẸ */
+@keyframes rotate {
+  0%   { rotate: 0deg; }
+  50%  { rotate: var(--rotate-angle); }
+  100% { rotate: 0deg; }
+}
+
 /* ------------------------ */
 /* ===========================
    MUSIC BUTTON (FIXED)
