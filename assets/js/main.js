@@ -111,42 +111,14 @@ document.getElementById("btnGallery").addEventListener("click", function() {
 /* ###########################Album########################### */
 const thumbs = document.querySelectorAll('.gallery-thumbs img');
 const mainImage = document.getElementById('mainImage');
+const thumbsContainer = document.getElementById('thumbs');
 
 let currentIndex = 0;
-let thumbIndex = 0;
-const visibleThumbs = 5;
-const thumbWidth = 90; // ảnh + gap
 
-// Click thumbnail
+/* CLICK THUMB */
 thumbs.forEach((img, index) => {
-  img.addEventListener('click', () => {
-    setActive(index);
-  });
+  img.addEventListener('click', () => setActive(index));
 });
-
-// Nút ảnh lớn
-document.querySelector('.gallery-main .prev').onclick = () => {
-  setActive((currentIndex - 1 + thumbs.length) % thumbs.length);
-};
-
-document.querySelector('.gallery-main .next').onclick = () => {
-  setActive((currentIndex + 1) % thumbs.length);
-};
-
-// Nút thumbnail
-document.querySelector('.thumb-nav.next').onclick = () => {
-  if (thumbIndex < thumbs.length - visibleThumbs) {
-    thumbIndex++;
-    updateThumbPosition();
-  }
-};
-
-document.querySelector('.thumb-nav.prev').onclick = () => {
-  if (thumbIndex > 0) {
-    thumbIndex--;
-    updateThumbPosition();
-  }
-};
 
 function setActive(index) {
   thumbs[currentIndex].classList.remove('active');
@@ -154,30 +126,32 @@ function setActive(index) {
   thumbs[currentIndex].classList.add('active');
   mainImage.src = thumbs[currentIndex].src;
 
-  if (currentIndex < thumbIndex) thumbIndex = currentIndex;
-  if (currentIndex >= thumbIndex + visibleThumbs) {
-    thumbIndex = currentIndex - visibleThumbs + 1;
+  thumbs[currentIndex].scrollIntoView({
+    behavior: 'smooth',
+    inline: 'center'
+  });
+}
+
+/* SWIPE ẢNH LỚN */
+let startX = 0;
+
+mainImage.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+});
+
+mainImage.addEventListener('touchend', e => {
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0 && currentIndex < thumbs.length - 1) {
+      setActive(currentIndex + 1);
+    } else if (diff < 0 && currentIndex > 0) {
+      setActive(currentIndex - 1);
+    }
   }
-  updateThumbPosition();
-}
+});
 
-function updateThumbPosition() {
-  document.getElementById('thumbs').style.transform =
-    `translateX(-${thumbIndex * thumbWidth}px)`;
-}
-
-/* LIGHTBOX */
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-
-mainImage.onclick = () => {
-  lightboxImg.src = mainImage.src;
-  lightbox.style.display = 'flex';
-};
-
-lightbox.onclick = () => {
-  lightbox.style.display = 'none';
-};
 
 
 

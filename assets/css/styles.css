@@ -423,8 +423,20 @@ header {
 /* ============================
    GALLERY SLIDER
 ============================ */
+#gallery-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  margin-top: 40px;
+  margin-bottom: 24px;
+
+  text-align: center;
+  color: #7c0a0a;
+}
+
 /* ===== GALLERY SLIDER ===== */
-/* ===== GALLERY ===== */
 .gallery-slider {
   max-width: 900px;
   margin: auto;
@@ -432,10 +444,9 @@ header {
 
 /* ẢNH LỚN */
 .gallery-main {
-  position: relative;
   width: 100%;
   height: 420px;
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
   cursor: zoom-in;
 }
@@ -444,37 +455,21 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .3s ease;
 }
-
-.gallery-main .nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,.5);
-  color: #fff;
-  border: none;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-.gallery-main .prev { left: 12px; }
-.gallery-main .next { right: 12px; }
 
 /* THUMBNAILS */
 .gallery-thumbs-wrapper {
   position: relative;
-  max-width: 420px; /* 5 ảnh */
-  margin: 15px auto 0;
-  overflow: hidden;
+  margin-top: 15px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gallery-thumbs {
   display: flex;
   gap: 10px;
-  transition: transform 0.3s ease;
+  padding: 5px 15px;
 }
 
 .gallery-thumbs img {
@@ -484,7 +479,8 @@ header {
   flex-shrink: 0;
   opacity: 0.5;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: opacity .2s, transform .2s;
 }
 
 .gallery-thumbs img.active {
@@ -492,38 +488,30 @@ header {
   outline: 2px solid #7c0a0a;
 }
 
-/* NÚT THUMB */
-.thumb-nav {
+.gallery-thumbs img:hover {
+  transform: scale(1.05);
+}
+
+/* FADE 2 BÊN → báo hiệu còn ảnh */
+.fade-edge::before,
+.fade-edge::after {
+  content: "";
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,.6);
-  color: #fff;
-  border: none;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  pointer-events: none;
   z-index: 2;
 }
 
-.thumb-nav.prev { left: 0; }
-.thumb-nav.next { right: 0; }
-
-/* LIGHTBOX */
-#lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+.fade-edge::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
 }
 
-#lightbox img {
-  max-width: 90%;
-  max-height: 90%;
+.fade-edge::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
 }
 
 /* MOBILE */
@@ -532,13 +520,9 @@ header {
     height: 260px;
   }
 
-  .gallery-thumbs-wrapper {
-    max-width: 320px;
-  }
-
   .gallery-thumbs img {
-    width: 60px;
-    height: 45px;
+    width: 65px;
+    height: 48px;
   }
 }
 /* ============================
