@@ -89,9 +89,7 @@ const enableMusic = () => {
     }
 };
 
-window.addEventListener("click", enableMusic);
-window.addEventListener("touchstart", enableMusic);
-window.addEventListener("scroll", enableMusic);  // chỉ cần cuộn trang là phát
+window.addEventListener("pointerdown", enableMusic, { once: true });
 
 // Khi bấm nút → bật/tắt nhạc
 btn.addEventListener("click", (e) => {

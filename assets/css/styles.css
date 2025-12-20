@@ -227,7 +227,7 @@ header {
 /* ------------------------------------------------
    CHÚ RỂ – MINH AN
 ------------------------------------------------ */
-.bride {
+.groom {
   /* --- Layout --- */
   display: block;                             /* mỗi tên chiếm 1 dòng */
 
@@ -262,7 +262,7 @@ header {
 /* ------------------------------------------------
    CÔ DÂU – THU KHA
 ------------------------------------------------ */
-.groom {
+.bride {
   /* --- Layout --- */
   display: block;                             /* mỗi tên 1 dòng */
 
@@ -453,7 +453,7 @@ header {
 ------------------------------------------------ */
 .date {
   /* --- Transform --- */
-  transform: translateX(50px);     /* đẩy sang phải */
+  text-align: center;
 }
 
 /* ------------------------------------------------
@@ -617,40 +617,39 @@ header {
 /* ======================================
    CÔ DÂU – ẢNH TRÁI | TÊN PHẢI
 ====================================== */
-.person.bride {
-  justify-content: flex-start;          /* canh trái cụm */
-
-  /* 🔄 DỊCH RIÊNG CỤM CÔ DÂU */
-  transform: translate(50px, 0px);
+.person.groom {
+  justify-content: flex-start;
+  margin-left: 50px;   /* ✅ KHÔNG gây overflow */
+  transform: none;
 }
 
 /* Khoảng cách ảnh – tên cô dâu */
-.bride-name {
+.groom-name {
   margin-left: 16px;                   /* tên cách ảnh */
 }
 
 /* Viền ảnh cô dâu */
-.bride-photo {
+.groom-photo {
   border: 3px solid #bfbfbf;
 }
 
 /* ======================================
    CHÚ RỂ – TÊN TRÁI | ẢNH PHẢI
 ====================================== */
-.person.groom {
+.person.bride {
   justify-content: flex-end;            /* canh phải cụm */
 
   /* 🔄 DỊCH RIÊNG CỤM CHÚ RỂ */
-  transform: translate(-30px, 0px);
+  transform: translate(-40px, 0px);
 }
 
 /* Khoảng cách tên – ảnh chú rể */
-.groom-name {
+.bride-name {
   margin-right: 16px;
 }
 
 /* Viền ảnh chú rể */
-.groom-photo {
+.bride-photo {
   border: 3px solid #bfbfbf;
 }
 
@@ -688,8 +687,8 @@ header {
 }
 
 .invite-card {
+    border-radius: 20px;
     background: #7c0a0a;
-    border-radius: 70px;
     padding: 25px;
     color: #fff;
     text-align: center;
@@ -775,8 +774,16 @@ header {
    CEREMONY CARD (KHỐI CHA)
 ================================ */
 .ceremony-card {
+  background: #64595907;
   text-align: center;
   position: relative;
+  border-radius: 20px;
+  padding: 25px;
+  color: #fff;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+  max-width: 700px;   /* chỉnh bề ngang tối đa của hình chữ nhật */
+  width: 90%;         /* tự co khi màn hình nhỏ */
+  margin: 0.5rem auto;
 }
 
 /* ===============================
@@ -787,26 +794,38 @@ header {
 }
 
 .ceremony-title {
+  border-radius: 6px;
+  color: #ffffff;
+  background: #7c0a0a;
   font-size: 20px;
   font-weight: 600;
 }
 
 .ceremony-time {
+  color: #300707;
   font-size: 13px;
   margin-bottom: 12px;
 }
 
 /* Ngày lớn ở giữa */
 .ceremony-date {
+  color: #300707;
   display: flex;
   justify-content: center;
   align-items: baseline;
   gap: 12px;
 }
+/* Ngày lớn ở giữa */
+.ceremony-lunar {
+  color: #300707;
+}
+.ceremony-place {
+  color: #300707;
+}
 
 .ceremony-date strong {
   font-size: 42px;
-  color: #8b1c1c;
+  color: #ce2525;
 }
 
 /* ===============================
@@ -814,16 +833,37 @@ header {
 ================================ */
 .route-wrapper {
   position: relative;
-  margin: 30px 0;
+  width: 100%;
+  max-width: 360px;
+  min-width: 280px;   /* 🔑 NGĂN THU NHỎ QUÁ */
+
+  margin: 30px auto;
+  aspect-ratio: 360 / 180;
 }
+
 
 /* ===============================
    NHÀ GÁI / NHÀ TRAI
 ================================ */
 .house {
+  transform-origin: center;
+  scale: clamp(0.8, 1vw, 1);
+}
+
+.house {
   position: absolute;
   text-align: center;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 120px;        /* 🔑 giới hạn ngang */
+  word-wrap: break-word;
 }
+
+
 
 .house-name {
   font-size: 13px;
@@ -835,22 +875,30 @@ header {
   margin-top: 4px;
   padding: 4px 10px;
   font-size: 11px;
-  background: #7a1f1f;
-  color: #fff;
+  background: #a51111;
+  color: #d88888;
   border-radius: 12px;
   text-decoration: none;
 }
 
-/* Vị trí theo hình */
-.house.bride {
-  top: -10px;
-  right: 0;
+.house {
+  position: absolute;
+  text-align: center;
+  z-index: 2; /* 🔑 nằm trên ảnh */
 }
 
-.house.groom {
-  bottom: -10px;
-  left: 0;
+/* NHÀ GÁI – GÓC TRÊN PHẢI */
+.house.bride {
+  top: 14%;
+  right: 27%;
 }
+
+/* NHÀ TRAI – GÓC DƯỚI TRÁI */
+.house.groom {
+  top: 77%;
+  left: 26%;
+}
+
 .roadhouse {
   width: 100%;        /* ⬅️ GIẢM KÍCH THƯỚC TỔNG THỂ */
   max-width: 360px;  /* ⬅️ KHÓA KÍCH THƯỚC TRÊN LAPTOP */
@@ -1177,11 +1225,11 @@ header {
     left: 40px;              /* ❗ GIẢM từ 60px */
   }
 
-  .bride {
+  .groom {
     transform: translate(-40px, -5px); /* ❗ GIẢM */
   }
 
-  .groom {
+  .bride {
     transform: translate(40px, 5px);   /* ❗ GIẢM */
   }
 
