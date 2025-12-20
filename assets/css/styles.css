@@ -26,10 +26,10 @@ header {
 .hero-image {
   position: absolute;
   inset: 0;
-  width: 120%; 
+  width: 130%; 
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.7); /*Chỉnh sáng tối cho ảnh*/
+  filter: brightness(1); /*Chỉnh sáng tối cho ảnh*/
 }
 
 .overlay {
@@ -156,125 +156,172 @@ header {
 
 
 
-/* ============================
-   HERO CONTENT
-============================ */
+/* ##############################################################################################################################################
+   HERO CONTENT (CONTAINER CHÍNH)
+############################################################################################################################################## */
 .wedding-style {
-  position: absolute;
-  top: 50%;                 /* 🔼 chỉnh toàn bộ hero lên/xuống */
-  left: 50%;
-  transform: translate(-50%, -45%);
+  /* --- Position & layout --- */
+  position: absolute;              /* định vị hero content theo hero */
+  top: 60%;                        /* dịch toàn bộ cụm lên / xuống */
+  left: 50%;                       /* canh giữa theo trục ngang */
+  transform: translate(-50%, -45%);/* cân lại tâm hiển thị */
 
-  display: flex;
-  flex-direction: column;   /* 📐 xếp theo cột */
-  align-items: center;      /* 🎯 canh giữa ngang */
+  display: flex;                   /* dùng flex để xếp các khối con */
+  flex-direction: column;          /* xếp theo cột (trên → dưới) */
+  align-items: center;             /* canh giữa ngang các khối */
 
-  gap: 12px;                /* ↕ khoảng cách GIỮA các khối */
-  color: #fff;
+  gap: 12px;                       /* khoảng cách GIỮA các khối */
+
+  /* --- Color --- */
+  color: #d14040;                  /* màu chữ mặc định trong hero */
 }
 
-
-/* =========================
-   WE GET MARRIED (SCRIPT)
-========================= */
+/* ------------------------------------------------
+   WE GET MARRIED – SCRIPT DECORATION
+------------------------------------------------ */
 .we-get-married {
-  font-family: 'Great Vibes', cursive;
+  /* --- Font --- */
+  font-family: 'Passions Conflict', cursive; /* font viết tay trang trí */
 
-  font-size: clamp(80px, 4.5vw, 48px); /* 🔠 CHỈNH SIZE CHỮ */
-  font-weight: 400;                    /* 🔥 IN ĐẬM: 400 → 500 → 600 */
+  /* --- Text size & weight --- */
+  font-size: clamp(50px, 4.5vw, 48px);       /* size chữ responsive */
+  font-weight: 400;                          /* độ đậm chữ */
 
-  transform: rotate(-12deg);           /* 🔄 ĐỘ XOAY CHỮ */
+  /* --- Text style --- */
+  letter-spacing: 1px;                       /* giãn chữ */
+  opacity: 0.95;                             /* độ mờ nhẹ */
 
-  position: relative;
-  left: 200px;                          /* ➡ LỆCH SANG PHẢI / TRÁI (-) */
-  top: -100px;                            /* 🔼 LÊN (+) / XUỐNG (-) RIÊNG CHỮ */
-  white-space: nowrap;                 /* 🚫 KHÔNG XUỐNG DÒNG */
+  /* --- Position --- */
+  position: relative;                        /* cho phép dịch bằng top/left */
+  left: 60px;                                /* dịch sang phải / trái (-) */
+  top: -100px;                               /* dịch lên / xuống (-) */
 
+  /* --- Transform --- */
+  transform: rotate(-12deg);                 /* xoay chữ tạo dáng */
 
-  margin-bottom: 6px;                  /* ↕ KHOẢNG CÁCH VỚI TÊN */
-  letter-spacing: 1px;                 /* 🔡 GIÃN CHỮ */
-  opacity: 0.95;                       /* 🌫 ĐỘ NHẸ CỦA CHỮ */
+  /* --- Spacing --- */
+  margin-bottom: 6px;                        /* khoảng cách với tên */
+
+  /* --- Text behavior --- */
+  white-space: nowrap;                       /* không cho xuống dòng */
 }
 
-/* =========================
-   TÊN CÔ DÂU & CHÚ RỂ
-========================= */
+/* ------------------------------------------------
+   TÊN CÔ DÂU & CHÚ RỂ (KHỐI TRUNG TÂM)
+------------------------------------------------ */
 .couple-names {
-  font-family: 'Playfair Display', serif;
+  /* --- Font --- */
+  font-family: 'Noto Serif', serif;           /* font serif trang trọng */
 
-  font-size: clamp(30px, 5vw, 56px);   /* 🔠 SIZE TÊN */
-  font-weight: 600;                    /* 🔥 ĐỘ ĐẬM TÊN */
+  /* --- Text size & weight --- */
+  font-size: clamp(25px, 5vw, 56px);          /* size tên */
+  font-weight: 300;                           /* nét chữ mảnh */
 
-  line-height: 1.1;                    /* ↕ ĐỘ CAO DÒNG */
+  /* --- Text style --- */
+  line-height: 1.1;                           /* chiều cao dòng */
 
-  /* 🔄 DỊCH TOÀN BỘ KHỐI TÊN */
-  /* transform: translate(0px, -60px); */
-  /* ➡ chỉnh X/Y để đẩy cả khối tên */
-  
-  white-space: nowrap;                 /* 🚫 KHÔNG XUỐNG DÒNG */
+  /* --- Text behavior --- */
+  white-space: nowrap;                        /* không xuống dòng */
 }
 
-/* =========================
+/* ------------------------------------------------
    CHÚ RỂ – MINH AN
-========================= */
+------------------------------------------------ */
 .bride {
-  display: block;
+  /* --- Layout --- */
+  display: block;                             /* mỗi tên chiếm 1 dòng */
 
-  /* 🔄 DỊCH RIÊNG MINH AN */
-  transform: translate(-80px, 0px);
-  /* X: âm = sang trái | dương = sang phải
-     Y: âm = lên | dương = xuống */
+  /* --- Transform --- */
+  transform: translate(-60px, -10px);         /* dịch trái & lên nhẹ */
 
-  white-space: nowrap;   /* 🚫 KHÔNG XUỐNG HÀNG */
+  /* --- Text behavior --- */
+  white-space: nowrap;                        /* không xuống hàng */
 }
 
-/* =========================
-   DẤU &
-========================= */
+/* ------------------------------------------------
+   DẤU & (NGĂN CÁCH TÊN)
+------------------------------------------------ */
 .and {
-  display: block;
+  /* --- Layout --- */
+  display: block;                             /* hiển thị trên 1 dòng riêng */
 
-  font-size: 0.9em;
-  font-weight: 400;
+  /* --- Text size & weight --- */
+  font-size: 0.9em;                           /* nhỏ hơn tên */
+  font-weight: 400;                           /* đậm vừa */
 
-  /* 🔄 DỊCH RIÊNG DẤU & */
-  transform: translate(0px, 0px);
+  /* --- Transform --- */
+  transform: translate(0px, 0px);             /* có thể chỉnh X/Y nếu cần */
 
-  margin: 6px 0;
+  /* --- Spacing --- */
+  margin: 6px 0;                              /* khoảng cách trên / dưới */
+
+  /* --- Text behavior --- */
   white-space: nowrap;
 }
 
-/* =========================
-   CHÚ RỂ – THU KHA
-========================= */
+/* ------------------------------------------------
+   CÔ DÂU – THU KHA
+------------------------------------------------ */
 .groom {
-  display: block;
+  /* --- Layout --- */
+  display: block;                             /* mỗi tên 1 dòng */
 
-  /* 🔄 DỊCH RIÊNG THU KHA */
-  transform: translate(80px, 0px);
-  /* ➡ sang phải */
+  /* --- Transform --- */
+  transform: translate(60px, 10px);           /* dịch sang phải & xuống nhẹ */
 
+  /* --- Text behavior --- */
   white-space: nowrap;
 }
-/* =========================
+
+/* ------------------------------------------------
    NGÀY CƯỚI
-========================= */
+------------------------------------------------ */
 .wedding-date {
-  font-size: clamp(14px, 2vw, 18px);   /* 🔠 SIZE NGÀY */
-  font-weight: 400;                    /* 🔥 ĐỘ ĐẬM */
+  /* --- Text size & weight --- */
+  font-size: clamp(15px, 2vw, 18px);          /* size ngày */
+  font-weight: 400;                           /* độ đậm */
 
-  letter-spacing: 3px;                 /* 🔡 GIÃN CHỮ */
+  /* --- Text style --- */
+  letter-spacing: 1px;                        /* giãn chữ */
 
-  /* 🔄 DỊCH RIÊNG NGÀY */
-  /* transform: translate(0px, -40px); */
-  /* ➡ X: trái/phải | Y: lên/xuống */
+  /* --- Transform --- */
+  transform: translate(0px, 50px);            /* đẩy ngày xuống dưới */
 
-  white-space: nowrap;                 /* 🚫 KHÔNG BAO GIỜ XUỐNG HÀNG */
+  /* --- Text behavior --- */
+  white-space: nowrap;                        /* không bao giờ xuống dòng */
 }
 
+/* ------------------------------------------------
+   CÂU PHỤ – SAU NGÀY CƯỚI
+------------------------------------------------ */
+.info-sentences {
+  /* --- Font --- */
+  font-family: 'Passions Conflict', cursive;  /* cùng font với script */
+
+  /* --- Text size & weight --- */
+  font-size: clamp(33px, 1.8vw, 16px);        /* size chữ phụ */
+  font-weight: 400;                           /* nét thường */
+
+  /* --- Text style --- */
+  letter-spacing: 1px;                        /* giãn chữ */
+  opacity: 0.9;                               /* độ mờ nhẹ */
+
+  /* --- Transform --- */
+  transform: translate(0px, 50px);            /* tạo dáng xuống dưới */
+
+  /* --- Spacing --- */
+  margin-top: 20px;                           /* đảm bảo luôn dưới ngày */
+
+  /* --- Text behavior --- */
+  white-space: nowrap;
+}
+
+/* ##############################################################################################################################################
+   HERO CONTENT (CONTAINER CHÍNH)
+############################################################################################################################################## */
 
 
-/* ============================
+/* ==============================================================================================================
    COUNTDOWN
 ============================ */
 .hero-countdown {
@@ -286,6 +333,7 @@ header {
   display: flex;
   justify-content: center;
   z-index: 9999;     /* đảm bảo không bị hero che */
+  opacity: 0.4;                       /* 🌫 ĐỘ NHẸ CỦA CHỮ */
 }
 
 .timer {
@@ -827,3 +875,37 @@ header {
   .timer { gap:0.5rem; }
   .timer span { font-size:1.1rem; }
 }
+
+/* =====================================================
+   DESKTOP / LAPTOP
+   Giảm độ dịch để tránh che lấn bố cục
+===================================================== */
+@media (min-width: 1024px) {
+
+  .wedding-style {
+    top: 55%;                /* đẩy cụm xuống nhẹ */
+    transform: translate(-50%, -40%);
+  }
+
+  .we-get-married {
+    top: -60px;              /* ❗ GIẢM từ -100px */
+    left: 40px;              /* ❗ GIẢM từ 60px */
+  }
+
+  .bride {
+    transform: translate(-40px, -5px); /* ❗ GIẢM */
+  }
+
+  .groom {
+    transform: translate(40px, 5px);   /* ❗ GIẢM */
+  }
+
+  .wedding-date {
+    transform: translate(0px, 30px);   /* ❗ GIẢM */
+  }
+
+  .info-sentences {
+    margin-top: 10px;        /* giữ câu phụ sát ngày */
+  }
+}
+
