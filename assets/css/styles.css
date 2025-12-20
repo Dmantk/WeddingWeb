@@ -159,36 +159,120 @@ header {
 /* ============================
    HERO CONTENT
 ============================ */
-.hero-content {
+.wedding-style {
   position: absolute;
-  top: 40%; /* chỉnh độ cao trên web */
+  top: 50%;                 /* 🔼 chỉnh toàn bộ hero lên/xuống */
   left: 50%;
-  transform: translate(-50%, -30%); /* chỉnh độ cao trên mobile */
-  text-align: center;
+  transform: translate(-50%, -45%);
+
+  display: flex;
+  flex-direction: column;   /* 📐 xếp theo cột */
+  align-items: center;      /* 🎯 canh giữa ngang */
+
+  gap: 12px;                /* ↕ khoảng cách GIỮA các khối */
   color: #fff;
 }
 
-.names {
-  font-family: 'Pacifico', cursive;
-  font-size: 5vw;       /* tự co theo chiều rộng màn hình */
-  text-align: center;
+
+/* =========================
+   WE GET MARRIED (SCRIPT)
+========================= */
+.we-get-married {
+  font-family: 'Great Vibes', cursive;
+
+  font-size: clamp(80px, 4.5vw, 48px); /* 🔠 CHỈNH SIZE CHỮ */
+  font-weight: 400;                    /* 🔥 IN ĐẬM: 400 → 500 → 600 */
+
+  transform: rotate(-12deg);           /* 🔄 ĐỘ XOAY CHỮ */
+
+  position: relative;
+  left: 200px;                          /* ➡ LỆCH SANG PHẢI / TRÁI (-) */
+  top: -100px;                            /* 🔼 LÊN (+) / XUỐNG (-) RIÊNG CHỮ */
+  white-space: nowrap;                 /* 🚫 KHÔNG XUỐNG DÒNG */
+
+
+  margin-bottom: 6px;                  /* ↕ KHOẢNG CÁCH VỚI TÊN */
+  letter-spacing: 1px;                 /* 🔡 GIÃN CHỮ */
+  opacity: 0.95;                       /* 🌫 ĐỘ NHẸ CỦA CHỮ */
+}
+
+/* =========================
+   TÊN CÔ DÂU & CHÚ RỂ
+========================= */
+.couple-names {
+  font-family: 'Playfair Display', serif;
+
+  font-size: clamp(30px, 5vw, 56px);   /* 🔠 SIZE TÊN */
+  font-weight: 600;                    /* 🔥 ĐỘ ĐẬM TÊN */
+
+  line-height: 1.1;                    /* ↕ ĐỘ CAO DÒNG */
+
+  /* 🔄 DỊCH TOÀN BỘ KHỐI TÊN */
+  /* transform: translate(0px, -60px); */
+  /* ➡ chỉnh X/Y để đẩy cả khối tên */
+  
+  white-space: nowrap;                 /* 🚫 KHÔNG XUỐNG DÒNG */
+}
+
+/* =========================
+   CHÚ RỂ – MINH AN
+========================= */
+.bride {
+  display: block;
+
+  /* 🔄 DỊCH RIÊNG MINH AN */
+  transform: translate(-80px, 0px);
+  /* X: âm = sang trái | dương = sang phải
+     Y: âm = lên | dương = xuống */
+
+  white-space: nowrap;   /* 🚫 KHÔNG XUỐNG HÀNG */
+}
+
+/* =========================
+   DẤU &
+========================= */
+.and {
+  display: block;
+
+  font-size: 0.9em;
+  font-weight: 400;
+
+  /* 🔄 DỊCH RIÊNG DẤU & */
+  transform: translate(0px, 0px);
+
+  margin: 6px 0;
   white-space: nowrap;
 }
 
-.subtitle {
-  font-size: 3vw;       /* tự co theo chiều rộng màn hình */
-  font-family: 'Gamja Flower';
-  margin-bottom: 15px;
+/* =========================
+   CHÚ RỂ – THU KHA
+========================= */
+.groom {
+  display: block;
+
+  /* 🔄 DỊCH RIÊNG THU KHA */
+  transform: translate(80px, 0px);
+  /* ➡ sang phải */
+
+  white-space: nowrap;
+}
+/* =========================
+   NGÀY CƯỚI
+========================= */
+.wedding-date {
+  font-size: clamp(14px, 2vw, 18px);   /* 🔠 SIZE NGÀY */
+  font-weight: 400;                    /* 🔥 ĐỘ ĐẬM */
+
+  letter-spacing: 3px;                 /* 🔡 GIÃN CHỮ */
+
+  /* 🔄 DỊCH RIÊNG NGÀY */
+  /* transform: translate(0px, -40px); */
+  /* ➡ X: trái/phải | Y: lên/xuống */
+
+  white-space: nowrap;                 /* 🚫 KHÔNG BAO GIỜ XUỐNG HÀNG */
 }
 
-.save-the-date-box {
-  background: #c62828;
-  padding: 8px 14px;
-  border-radius: 12px;
-  display: inline-block;
-  margin-bottom: 20px;
-  font-size: 2vw;
-}
+
 
 /* ============================
    COUNTDOWN
