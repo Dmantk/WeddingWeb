@@ -617,6 +617,13 @@ header {
 /* ======================================
    CÔ DÂU – ẢNH TRÁI | TÊN PHẢI
 ====================================== */
+.photo {
+  width: 160px;        /* ⬅️ tăng số này để ảnh to hơn */
+  height: 200px;       /* ⬅️ giữ tỉ lệ dọc cho ảnh chân dung */
+  overflow: hidden;
+  border-radius: 20px; /* bo góc mềm */
+}
+
 .person.groom {
   justify-content: flex-start;
   margin-left: 50px;   /* ✅ KHÔNG gây overflow */
@@ -630,7 +637,7 @@ header {
 
 /* Viền ảnh cô dâu */
 .groom-photo {
-  border: 3px solid #bfbfbf;
+  border:2px solid #bfbfbf;
 }
 
 /* ======================================
@@ -650,7 +657,7 @@ header {
 
 /* Viền ảnh chú rể */
 .bride-photo {
-  border: 3px solid #bfbfbf;
+  border: 2px solid #bfbfbf;
 }
 
 
@@ -924,6 +931,97 @@ header {
   text-align: center;
   color: #7c0a0a;
 }
+
+/* ===============================
+   CALENDAR SECTION
+================================ */
+.calendar-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.calendar-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.calendar-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2;
+}
+
+.calendar-title {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  font-size: 32px;
+  letter-spacing: 4px;
+  margin-top: 50px;
+}
+
+.calendar-wrapper {
+  position: absolute;
+  top: 120px;     /* 👈 chỉnh lên xuống */
+  right: 40px;    /* 👈 LUÔN bám góc trái */
+  z-index: 3;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 30px);
+  gap: 12px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.day {
+  text-align: center;
+  opacity: 0.85;
+}
+
+.day.special {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
+.heart-bg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.day-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.icon {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+  background: #f1d36a;
+  border-radius: 50%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 /* ===== GALLERY SLIDER ===== */
 .gallery-slider {
