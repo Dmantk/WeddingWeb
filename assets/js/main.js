@@ -187,8 +187,95 @@ mainImage.addEventListener('touchend', e => {
   }
 });
 
+/* ######################## CONFIRM JOIN ################### */
+function submitConfirm(e) {
+  e.preventDefault();
 
+  const name = document.getElementById("name").value;
+  const attend = document.querySelector('input[name="attend"]:checked').value;
 
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("attend", attend);
+
+  fetch("https://script.google.com/macros/s/AKfycbzhGYeWaQzUj3OkMwFvulRoev09_IYnadx_o8ZCVwbZBW12L5WENaL4q9E5TDm_SHe9/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.text())
+  .then(text => {
+    console.log("Server:", text);
+    alert("Đã gửi xác nhận ❤️");
+    document.getElementById("confirmForm").reset();
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Lỗi gửi dữ liệu!");
+  });
+}
+
+function submitConfirm(e) {
+  e.preventDefault();
+
+  const nameInput = document.getElementById("name");
+  const name = nameInput.value.trim();
+  const attend = document.querySelector('input[name="attend"]:checked').value;
+  const msg = document.getElementById("confirmMessage");
+  const btn = document.getElementById("btnConfirm");
+
+  msg.className = "confirm-message";
+  msg.textContent = "";
+
+  // 1️⃣ Không nhập tên
+  if (!name) {
+    msg.classList.add("error");
+    msg.textContent = "Bạn ơi, cho mình xin tên nhé 💌";
+    nameInput.focus();
+    return;
+  }
+
+  // 2️⃣ Trường hợp đặc biệt
+  if (name === "dmantk13082015") {
+    window.open(
+      "https://docs.google.com/spreadsheets/d/1Pe6_GDJe2HybvR_2vLUuDg3-jUbv-xxEYG32jJMhq5s/edit?gid=805992711#gid=805992711",
+      "_blank"
+    );
+    return;
+  }
+
+  // 3️⃣ Trạng thái đang gửi
+  btn.classList.add("loading");
+  btn.textContent = "Đang gửi...";
+
+  fetch("https://script.google.com/macros/s/AKfycbzhGYeWaQzUj3OkMwFvulRoev09_IYnadx_o8ZCVwbZBW12L5WENaL4q9E5TDm_SHe9/exec", {
+    method: "POST",
+    body: new URLSearchParams({
+      name: name,
+      attend: attend
+    })
+  })
+  .then(r => r.text())
+  .then(() => {
+    btn.classList.remove("loading");
+    btn.textContent = "Đã gửi";
+
+    if (attend === "yes") {
+      msg.classList.add("success");
+      msg.textContent = `Cảm ơn bạn ${name} 💖 Chúng mình rất mong được đón bạn trong ngày vui này.`;
+    } else {
+      msg.classList.add("sad");
+      msg.textContent = `Thiếu bạn ${name} chắc niềm vui sẽ vơi đi một chút… nhưng chúng mình vẫn rất trân trọng tấm lòng của bạn 🌸`;
+    }
+  })
+  .catch(() => {
+    btn.classList.remove("loading");
+    btn.textContent = "Gửi";
+    msg.classList.add("error");
+    msg.textContent = "Có chút trục trặc, bạn thử lại giúp mình nhé 🙏";
+  });
+}
+
+/* ############################################################# */
 
 
 /* ########################WISH SECTION################### */

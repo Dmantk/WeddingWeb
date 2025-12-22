@@ -214,77 +214,117 @@
     <!-- =========================================
      CALENDAR
      ========================================= -->
-<section class="calendar-section">
+    <section class="calendar-section">
 
-  <!-- Background -->
-  <img src="assets/images/pic5.webp" class="calendar-bg" alt="">
-  <div class="calendar-overlay"></div>
+      <!-- Background -->
+      <img src="assets/images/pic5.webp" class="calendar-bg" alt="">
+      <div class="calendar-overlay"></div>
 
-  <!-- Title -->
-  <h2 class="calendar-title">INVITATION</h2>
+      <!-- Title -->
+      <h2 class="calendar-title">INVITATION</h2>
 
-  <!-- Calendar -->
-  <div class="calendar-wrapper">
-    <div class="calendar-grid">
+      <!-- Calendar -->
+      <div class="calendar-wrapper">
+        <div class="calendar-grid">
 
-      <!-- header -->
-      <span class="day header">T2</span>
-      <span class="day header">T3</span>
-      <span class="day header">T4</span>
-      <span class="day header">T5</span>
-      <span class="day header">T6</span>
-      <span class="day header">T7</span>
-      <span class="day header">CN</span>
+          <!-- header -->
+          <span class="day header">T2</span>
+          <span class="day header">T3</span>
+          <span class="day header">T4</span>
+          <span class="day header">T5</span>
+          <span class="day header">T6</span>
+          <span class="day header">T7</span>
+          <span class="day header">CN</span>
 
-      <!-- offset -->
-      <span class="day empty"></span>
-      <span class="day empty"></span>
-      <span class="day empty"></span>
+          <!-- offset -->
+          <span class="day empty"></span>
+          <span class="day empty"></span>
+          <span class="day empty"></span>
 
-      <!-- days -->
-      <span class="day">1</span>
-      <span class="day">2</span>
-      <span class="day">3</span>
-      <span class="day">4</span>
-      <span class="day">5</span>
-      <span class="day">6</span>
-      <span class="day">7</span>
+          <!-- days -->
+          <span class="day">1</span>
+          <span class="day">2</span>
+          <span class="day">3</span>
+          <span class="day">4</span>
+          <span class="day">5</span>
+          <span class="day">6</span>
+          <span class="day">7</span>
 
-      <span class="day">8</span>
-      <span class="day">9</span>
-      <span class="day">10</span>
-      <span class="day">11</span>
-      <span class="day">12</span>
-      <span class="day">13</span>
-      <span class="day">14</span>
+          <span class="day">8</span>
+          <span class="day">9</span>
+          <span class="day">10</span>
+          <span class="day">11</span>
+          <span class="day">12</span>
+          <span class="day">13</span>
+          <span class="day">14</span>
 
-      <span class="day">15</span>
-      <span class="day">16</span>
-      <span class="day">17</span>
-      <span class="day" data-day="18">18</span>
-      <span class="day">19</span>
-      <span class="day">20</span>
-      <span class="day">21</span>
+          <span class="day">15</span>
+          <span class="day">16</span>
+          <span class="day">17</span>
+          <span class="day" data-day="18">18</span>
+          <span class="day">19</span>
+          <span class="day">20</span>
+          <span class="day">21</span>
 
-      <span class="day">22</span>
-      <span class="day">23</span>
-      <span class="day" data-day="24">24</span>
-      <span class="day">25</span>
-      <span class="day">26</span>
-      <span class="day">27</span>
-      <span class="day">28</span>
+          <span class="day">22</span>
+          <span class="day">23</span>
+          <span class="day" data-day="24">24</span>
+          <span class="day">25</span>
+          <span class="day">26</span>
+          <span class="day">27</span>
+          <span class="day">28</span>
 
-      <span class="day">29</span>
-      <span class="day">30</span>
-      <span class="day">31</span>
+          <span class="day">29</span>
+          <span class="day">30</span>
+          <span class="day">31</span>
 
-    </div>
+        </div>
 
-    <!-- ICON OVERLAY -->
-    <img src="assets/images/heart-bride.webp" class="calendar-icon bride" alt="">
-    <img src="assets/images/heart-groom.webp" class="calendar-icon groom" alt="">
-  </div>
-</section>
+        <!-- ICON OVERLAY -->
+        <img src="assets/images/heart-bride.webp" class="calendar-icon bride" alt="">
+        <img src="assets/images/heart-groom.webp" class="calendar-icon groom" alt="">
+      </div>
+    </section>
+    <!-- =========================================
+    CONFIRM JOIN
+    ========================================= -->
+    <section id="confirm-join" class="confirm-section">
+      <div class="confirm-card">
+        <h2>Xác nhận tham dự</h2>
+        <p class="confirm-desc">
+          Hãy xác nhận sự có mặt của bạn để chúng mình chuẩn bị đón tiếp một cách chu đáo nhất.
+        </p>
+
+        <form id="confirmForm" onsubmit="submitConfirm(event)">
+          <div class="form-group">
+            <label for="name">Họ và tên</label>
+            <input type="text" id="name" name="name" placeholder="Nhập tên của bạn">
+          </div>
+
+          <div class="form-group">
+            <label>Bạn sẽ tham dự chứ?</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="attend" value="yes" checked>
+                Có, tôi sẽ tham dự
+              </label>
+              <label>
+                <input type="radio" name="attend" value="no">
+                Tôi bận, rất tiếc không thể tham dự
+              </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-confirm" id="btnConfirm">
+            Gửi
+          </button>
+
+          <!-- 👇 THÔNG BÁO HIỂN THỊ Ở ĐÂY -->
+          <div id="confirmMessage" class="confirm-message"></div>
+        </form>
+
+      </div>
+    </section>
 
 
 
@@ -358,7 +398,10 @@ WISH
 
         <div class="wish-actions">
           <button class="btn-send" onclick="sendWish()">Gửi lời chúc</button>
-          <button class="btn-qr" onclick="openQR()">Mã QR mừng cưới</button>
+          <button class="btn-qr" onclick="openQR()">
+            <img src="assets/images/gift.png" alt="Quà mừng" class="btn-icon">
+            <span>Hộp quà mừng</span>
+          </button>
         </div>
 
         <p id="wishAlert" class="wish-alert"></p>
