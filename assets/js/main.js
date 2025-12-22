@@ -114,7 +114,36 @@ document.getElementById("btnGallery").addEventListener("click", function() {
   document.getElementById("gallery-section").scrollIntoView({ behavior: "smooth" });
 });
 /* ####################################################### */
-/* ###########################Album########################### */
+
+/* ########################### CALENDAR ########################### */
+document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector(".calendar-wrapper");
+
+  function bindIcon(day, iconSelector) {
+    const cell = document.querySelector(`.day[data-day="${day}"]`);
+    const icon = document.querySelector(iconSelector);
+    if (!cell || !icon) return;
+
+    const cellRect = cell.getBoundingClientRect();
+    const wrapperRect = wrapper.getBoundingClientRect();
+
+    icon.style.left = (cellRect.left - wrapperRect.left) + "px";
+    icon.style.top  = (cellRect.top  - wrapperRect.top)  + "px";
+  }
+
+  bindIcon(18, ".calendar-icon.bride");
+  bindIcon(24, ".calendar-icon.groom");
+
+  window.addEventListener("resize", () => {
+    bindIcon(18, ".calendar-icon.bride");
+    bindIcon(24, ".calendar-icon.groom");
+  });
+});
+/* ############################################################## */
+
+
+
+/* ############################################################## */
 const thumbs = document.querySelectorAll('.gallery-thumbs img');
 const mainImage = document.getElementById('mainImage');
 const thumbsContainer = document.getElementById('thumbs');

@@ -916,9 +916,9 @@ header {
 
 
 
-/* ============================
+/* ================================================================================================================
    GALLERY SLIDER
-============================ */
+================================================================================================================ */
 #gallery-section h2 {
   font-family: "Playfair Display", serif;
   font-size: 32px;
@@ -932,9 +932,13 @@ header {
   color: #7c0a0a;
 }
 
-/* ===============================
+/* ===================================================================================================================
    CALENDAR SECTION
-================================ */
+==================================================================================================================== */
+/* =================================================================
+   CALENDAR SECTION – FIX CỨNG GRID, KHÔNG BAO GIỜ LỆCH
+================================================================= */
+
 .calendar-section {
   position: relative;
   height: 100vh;
@@ -947,81 +951,76 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.7;
   z-index: 1;
 }
 
 .calendar-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: transparent;
   z-index: 2;
 }
 
 .calendar-title {
   position: relative;
   z-index: 3;
+  margin-top: 50px;
   text-align: center;
   color: #fff;
   font-size: 32px;
   letter-spacing: 4px;
-  margin-top: 50px;
 }
 
+/* ===== WRAPPER ===== */
 .calendar-wrapper {
   position: absolute;
-  top: 120px;     /* 👈 chỉnh lên xuống */
-  right: 40px;    /* 👈 LUÔN bám góc trái */
+  top: 120px;
+  right: 40px;
   z-index: 3;
 }
 
 .calendar-grid {
+  position: relative; /* 🔥 MỐC CHUẨN */
   display: grid;
   grid-template-columns: repeat(7, 30px);
   gap: 12px;
-  color: #fff;
-  font-size: 13px;
 }
-
+/* ===== DAY (TẤT CẢ GIỐNG NHAU) ===== */
 .day {
-  text-align: center;
-  opacity: 0.85;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  color: #fff;
+  opacity: .9;
+
+  line-height: 1;        /* 🔒 CHỐNG FONT ĐẨY GRID */
+  box-sizing: border-box;
 }
 
-.day.special {
-  position: relative;
+/* header & empty KHÔNG PHÁ GRID */
+.day.header {
+  opacity: .75;
+}
+
+.day.empty {
+  pointer-events: none;
+}
+
+/* ===== ICON OVERLAY – ĐỘC LẬP ===== */
+/* icon */
+.calendar-icon {
+  position: absolute;
   width: 34px;
   height: 34px;
+  pointer-events: none;
+  z-index: 5;
+  transform: translate(-2px, -2px); /* tim ôm số */
 }
-
-.heart-bg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.day-number {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-}
-
-.icon {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 16px;
-  height: 16px;
-  background: #f1d36a;
-  border-radius: 50%;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 
 /* ===== GALLERY SLIDER ===== */
 .gallery-slider {
