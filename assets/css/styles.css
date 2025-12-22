@@ -1021,7 +1021,7 @@ header {
   z-index: 5;
   transform: translate(-2px, -2px); /* tim ôm số */
 }
-
+/* ======================================================= confirm section ======================================================= */
 .confirm-section {
   padding: 80px 16px;
   display: flex;
@@ -1117,11 +1117,6 @@ header {
 .btn-confirm.loading {
   pointer-events: none;
   opacity: 0.7;
-  position: relative;
-}
-
-.btn-confirm.loading::after {
-  content: "Đang gửi...";
 }
 
 
@@ -1255,6 +1250,24 @@ header {
   margin-top: 10px;
 }
 
+.btn-send.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn-send.loading::after {
+  content: "Đang gửi...";
+}
+
+.wish-alert.error {
+  color: #c0392b;
+}
+
+.wish-alert.success {
+  color: #2c7a4b;
+}
+
+
 .btn-send {
   background: #d34d55;
   color: #fff;
@@ -1288,6 +1301,7 @@ header {
 }
 
 .wish-alert {
+  min-height: 20px;
   margin-top: 12px;
   font-size: 14px;
 }

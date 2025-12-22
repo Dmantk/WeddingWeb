@@ -397,7 +397,14 @@ WISH
           placeholder="Lời chúc dành cho cô dâu & chú rể 💕"></textarea>
 
         <div class="wish-actions">
-          <button class="btn-send" onclick="sendWish()">Gửi lời chúc</button>
+          <button
+            type="button"
+            id="sendWishBtn"
+            class="btn-send"
+            onclick="sendWish()">
+            Gửi lời chúc
+          </button>
+
           <button class="btn-qr" onclick="openQR()">
             <img src="assets/images/gift.png" alt="Quà mừng" class="btn-icon">
             <span>Hộp quà mừng</span>

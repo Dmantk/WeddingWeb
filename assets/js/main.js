@@ -191,42 +191,17 @@ mainImage.addEventListener('touchend', e => {
 function submitConfirm(e) {
   e.preventDefault();
 
-  const name = document.getElementById("name").value;
-  const attend = document.querySelector('input[name="attend"]:checked').value;
-
-  const formData = new FormData();
-  formData.append("name", name);
-  formData.append("attend", attend);
-
-  fetch("https://script.google.com/macros/s/AKfycbzhGYeWaQzUj3OkMwFvulRoev09_IYnadx_o8ZCVwbZBW12L5WENaL4q9E5TDm_SHe9/exec", {
-    method: "POST",
-    body: formData
-  })
-  .then(res => res.text())
-  .then(text => {
-    console.log("Server:", text);
-    alert("Đã gửi xác nhận ❤️");
-    document.getElementById("confirmForm").reset();
-  })
-  .catch(err => {
-    console.error(err);
-    alert("Lỗi gửi dữ liệu!");
-  });
-}
-
-function submitConfirm(e) {
-  e.preventDefault();
-
   const nameInput = document.getElementById("name");
   const name = nameInput.value.trim();
   const attend = document.querySelector('input[name="attend"]:checked').value;
   const msg = document.getElementById("confirmMessage");
   const btn = document.getElementById("btnConfirm");
 
+  // reset message
   msg.className = "confirm-message";
   msg.textContent = "";
 
-  // 1️⃣ Không nhập tên
+  // 1️⃣ chưa nhập tên
   if (!name) {
     msg.classList.add("error");
     msg.textContent = "Bạn ơi, cho mình xin tên nhé 💌";
@@ -234,7 +209,7 @@ function submitConfirm(e) {
     return;
   }
 
-  // 2️⃣ Trường hợp đặc biệt
+  // 2️⃣ user đặc biệt
   if (name === "dmantk13082015") {
     window.open(
       "https://docs.google.com/spreadsheets/d/1Pe6_GDJe2HybvR_2vLUuDg3-jUbv-xxEYG32jJMhq5s/edit?gid=805992711#gid=805992711",
@@ -243,37 +218,42 @@ function submitConfirm(e) {
     return;
   }
 
-  // 3️⃣ Trạng thái đang gửi
-  btn.classList.add("loading");
+  // 3️⃣ trạng thái đang gửi
+  btn.disabled = true;
   btn.textContent = "Đang gửi...";
+  btn.classList.add("loading");
 
   fetch("https://script.google.com/macros/s/AKfycbzhGYeWaQzUj3OkMwFvulRoev09_IYnadx_o8ZCVwbZBW12L5WENaL4q9E5TDm_SHe9/exec", {
     method: "POST",
-    body: new URLSearchParams({
-      name: name,
-      attend: attend
-    })
+    body: new URLSearchParams({ name, attend })
   })
-  .then(r => r.text())
-  .then(() => {
-    btn.classList.remove("loading");
-    btn.textContent = "Đã gửi";
+    .then(() => {
+      // ✅ HIỂN THỊ THÔNG BÁO
+      if (attend === "yes") {
+        msg.classList.add("success");
+        msg.textContent = `Cảm ơn bạn ${name} 💖 Chúng mình rất mong được đón bạn trong ngày vui này.`;
+      } else {
+        msg.classList.add("sad");
+        msg.textContent = `Thiếu bạn ${name} chắc niềm vui sẽ vơi đi một chút… 🌸`;
+      }
 
-    if (attend === "yes") {
-      msg.classList.add("success");
-      msg.textContent = `Cảm ơn bạn ${name} 💖 Chúng mình rất mong được đón bạn trong ngày vui này.`;
-    } else {
-      msg.classList.add("sad");
-      msg.textContent = `Thiếu bạn ${name} chắc niềm vui sẽ vơi đi một chút… nhưng chúng mình vẫn rất trân trọng tấm lòng của bạn 🌸`;
-    }
-  })
-  .catch(() => {
-    btn.classList.remove("loading");
-    btn.textContent = "Gửi";
-    msg.classList.add("error");
-    msg.textContent = "Có chút trục trặc, bạn thử lại giúp mình nhé 🙏";
-  });
+      // ✅ XOÁ TÊN SAU KHI GỬI
+      nameInput.value = "";
+
+      // (radio giữ nguyên lựa chọn để tiện gửi lại)
+    })
+    .catch(() => {
+      msg.classList.add("error");
+      msg.textContent = "Có chút trục trặc, bạn thử lại giúp mình nhé 🙏";
+    })
+    .finally(() => {
+      // ✅ NÚT QUAY LẠI CHỮ "GỬI"
+      btn.disabled = false;
+      btn.classList.remove("loading");
+      btn.textContent = "Gửi";
+    });
 }
+
 
 /* ############################################################# */
 
@@ -286,12 +266,17 @@ function sendWish() {
   const name = document.getElementById('wishName').value.trim();
   const message = document.getElementById('wishMessage').value.trim();
   const alertBox = document.getElementById('wishAlert');
+  const btn = document.getElementById('sendWishBtn');
 
   if (!name || !message) {
     alertBox.style.color = 'red';
     alertBox.textContent = '⚠️ Vui lòng nhập đầy đủ tên và lời chúc nhé!';
     return;
   }
+
+  // 🔒 khóa nút + đổi text (GÁN =, KHÔNG +=)
+  btn.disabled = true;
+  btn.textContent = '⏳ Đang gửi...';
 
   fetch(GOOGLE_SHEET_API, {
     method: "POST",
@@ -300,7 +285,7 @@ function sendWish() {
     .then(res => res.json())
     .then(() => {
       alertBox.style.color = 'green';
-      alertBox.textContent = '💖 Tụi mình cảm ơn nha!';
+      alertBox.textContent = `💖 Cảm ơn lời chúc của bạn ${name}!`;
 
       document.getElementById('wishName').value = '';
       document.getElementById('wishMessage').value = '';
@@ -308,8 +293,14 @@ function sendWish() {
     .catch(() => {
       alertBox.style.color = 'red';
       alertBox.textContent = '❌ Gửi chưa thành công, thử lại nhé!';
+    })
+    .finally(() => {
+      // 🔓 mở nút + trả text về ban đầu
+      btn.disabled = false;
+      btn.textContent = 'Gửi lời chúc';
     });
 }
+
 /* ######################## QR ################### */
 
 function openQR() {
