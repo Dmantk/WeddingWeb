@@ -36,35 +36,35 @@ function updateLoveDays(){
 updateLoveDays();
 
 /* ######################### trái tim rơi ########################### */
-function createFallingHeart() {
-  const heart = document.createElement("div");
-  heart.className = "falling-heart";
-  heart.innerHTML = "💍";
+// function createFallingHeart() {
+//   const heart = document.createElement("div");
+//   heart.className = "falling-heart";
+//   heart.innerHTML = "💍";
 
-  /* vị trí bắt đầu */
-  heart.style.left = Math.random() * 100 + "vw";
+//   /* vị trí bắt đầu */
+//   heart.style.left = Math.random() * 100 + "vw";
 
-  /* size */
-  const size = 12 + Math.random() * 18;
-  heart.style.fontSize = size + "px";
+//   /* size */
+//   const size = 12 + Math.random() * 18;
+//   heart.style.fontSize = size + "px";
 
-  /* random biến động */
-  const fallDuration = 6 + Math.random() * 6;     // 6–12s
-  const swayDuration = 3 + Math.random() * 3;     // 3–6s
-  const rotateDuration = 4 + Math.random() * 4;   // 4–8s
-  const swayDistance = (Math.random() * 60 - 30) + "px"; // trái / phải
-  const rotateAngle = (Math.random() * 40 - 20) + "deg";
+//   /* random biến động */
+//   const fallDuration = 6 + Math.random() * 6;     // 6–12s
+//   const swayDuration = 3 + Math.random() * 3;     // 3–6s
+//   const rotateDuration = 4 + Math.random() * 4;   // 4–8s
+//   const swayDistance = (Math.random() * 60 - 30) + "px"; // trái / phải
+//   const rotateAngle = (Math.random() * 40 - 20) + "deg";
 
-  heart.style.setProperty("--fall-duration", fallDuration + "s");
-  heart.style.setProperty("--sway-duration", swayDuration + "s");
-  heart.style.setProperty("--rotate-duration", rotateDuration + "s");
-  heart.style.setProperty("--sway-distance", swayDistance);
-  heart.style.setProperty("--rotate-angle", rotateAngle);
+//   heart.style.setProperty("--fall-duration", fallDuration + "s");
+//   heart.style.setProperty("--sway-duration", swayDuration + "s");
+//   heart.style.setProperty("--rotate-duration", rotateDuration + "s");
+//   heart.style.setProperty("--sway-distance", swayDistance);
+//   heart.style.setProperty("--rotate-angle", rotateAngle);
 
-  document.body.appendChild(heart);
+//   document.body.appendChild(heart);
 
-  setTimeout(() => heart.remove(), fallDuration * 1000);
-}
+//   setTimeout(() => heart.remove(), fallDuration * 1000);
+// }
 
 /* tạo nhẹ nhàng – không quá dày */
 setInterval(createFallingHeart, 900);

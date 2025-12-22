@@ -39,23 +39,66 @@ header {
 /* ============================
    BEAUTIFUL HEART BADGE
 ============================ */
+.love-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+#lovendays {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+#lovetext {
+  font-size: 17px;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
 
 .love-heart {
   position: absolute;
   top: 30px;
   left: 30px;
-  width: 110px;        /* GIỮ NGUYÊN */
-  height: 100px;       /* GIỮ NGUYÊN */
-  transform: scale(0.6);   /* ✔ Thu nhỏ trái tim đúng tỉ lệ */
+  width: 110px;
+  height: 100px;
+
+  transform: scale(0.6);
   transform-origin: top left;
-  background: radial-gradient(circle at 50% 50%, #bb111f, #ff5e76);
-  clip-path: path("M55 95 L10 55 A25 25 0 0 1 55 15 A25 25 0 0 1 100 55 Z");
-  box-shadow: 0 6px 18px rgba(255, 0, 0, 0.25);
+
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: heartBeat 1s infinite ease-in-out;
+
+  animation: heartBeat 1.2s infinite ease-in-out;
 }
+
+.heart-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.heart-svg path {
+  filter: drop-shadow(0 6px 12px rgba(212,22,44,0.35));
+}
+
+@keyframes heartBeat {
+  0%   { transform: scale(0.95); }
+  50%  { transform: scale(1.05); }
+  100% { transform: scale(0.95); }
+}
+
+.love-heart span {
+  position: relative;
+  color: #d4162c;
+  font-size: 22px;
+  font-weight: 700;
+  transform: translateY(-6px);
+}
+
+
 
 /* ------------tim đập---------- */
 @keyframes heartBeat {
@@ -65,10 +108,10 @@ header {
 }
 
 .love-heart span {
-  color: #ffffff;
-  font-size: 24px;
+  color: #d4162c;      /* đỏ cùng màu viền */
+  font-size: 22px;
   font-weight: 700;
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 /* ------------------------ */
 /* -----------tim rơi----------- */
