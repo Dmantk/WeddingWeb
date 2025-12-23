@@ -49,22 +49,22 @@ header {
 }
 
 #lovendays {
-  font-size: 17px;
+  font-size: 22px;
   font-weight: 700;
 }
 
 #lovetext {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 1px;
   margin-top: 2px;
 }
 
 .love-heart {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 90px;
-  height: 80px;
+  top: 30px;
+  left: 30px;
+  width: 110px;
+  height: 100px;
 
   transform: scale(0.6);
   transform-origin: top left;
@@ -164,8 +164,8 @@ header {
   top: 20px;
   right: 20px;
   z-index: 9999;
-  width: 35px;
-  height: 35px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(6px);
@@ -178,8 +178,8 @@ header {
 
 /* Icon đĩa */
 #disc-icon {
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   animation: spinDisc 4s linear infinite;
   animation-play-state: running;     /* QUAN TRỌNG */
 }
@@ -332,32 +332,27 @@ header {
 /* ------------------------------------------------
    CÂU PHỤ – SAU NGÀY CƯỚI
 ------------------------------------------------ */
-.hero-footer {
-  position: absolute;
-  left: 50%;
-  bottom: 10px;              /* ✅ countdown cách đáy 10px */
-  transform: translateX(-50%);
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  z-index: 9999;
-}
-
-
 .info-sentences {
-  font-family: 'Passions Conflict', cursive;
-  font-size: clamp(16px, calc(1rem + 2vw), 34px);
-  letter-spacing: 1px;
-  opacity: 0.9;
-  text-align: center;
-  white-space: normal;
-  margin: 0;
+  /* --- Font --- */
+  font-family: 'Passions Conflict', cursive;  /* cùng font với script */
+
+  /* --- Text size & weight --- */
+  font-size: clamp(33px, 1.8vw, 16px);        /* size chữ phụ */
+  font-weight: 400;                           /* nét thường */
+
+  /* --- Text style --- */
+  letter-spacing: 1px;                        /* giãn chữ */
+  opacity: 0.9;                               /* độ mờ nhẹ */
+
+  /* --- Transform --- */
+  transform: translate(0, 6vh);           /* tạo dáng xuống dưới */
+
+  /* --- Spacing --- */
+  margin-top: 20px;                           /* đảm bảo luôn dưới ngày */
+
+  /* --- Text behavior --- */
+  white-space: nowrap;
 }
-
-
 
 /* ##############################################################################################################################################
    HERO CONTENT (CONTAINER CHÍNH)
@@ -368,13 +363,16 @@ header {
    COUNTDOWN
 ============================ */
 .hero-countdown {
-  position: relative;        /* ❌ không absolute */
+  position: absolute;
+  bottom: 30px;      /* vị trí nằm dưới header */
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   display: flex;
   justify-content: center;
-  opacity: 0.4;
+  z-index: 9999;     /* đảm bảo không bị hero che */
+  opacity: 0.4;                       /* 🌫 ĐỘ NHẸ CỦA CHỮ */
 }
-
 
 .timer {
   display:flex;
@@ -384,17 +382,12 @@ header {
 }
 .timer div {
   background: rgba(0,0,0,0.5);
-  padding: clamp(6px, 2vw, 14px) clamp(8px, 3vw, 18px);
-  border-radius: clamp(6px, 2vw, 10px);
-  min-width: clamp(44px, 12vw, 70px);
-  color: #fff;
+  padding: .8rem 1rem;
+  border-radius: 8px;
+  color:#fff;
+  min-width:70px;
 }
-.timer span {
-  display: block;
-  font-size: clamp(16px, 6vw, 32px);
-  font-weight: 700;
-  line-height: 1;
-}
+.timer span { display:block; font-size:1.4rem; font-weight:700; }
 
 /* ##############################################################################################################################################
    MAIN
