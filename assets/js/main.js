@@ -67,7 +67,7 @@ updateLoveDays();
 // }
 
 /* tạo nhẹ nhàng – không quá dày */
-setInterval(createFallingHeart, 900);
+// setInterval(createFallingHeart, 900);
 
 /* ####################################################### */
 
