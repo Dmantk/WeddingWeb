@@ -1,12 +1,16 @@
 <!doctype html>
 <html lang="vi">
+<!-- #############################################################################################################################
+    HEAD
+############################################################################################################################# -->
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>An & Kha - Wedding</title>
   <link rel="icon" href="assets/icons/favicon.png" />
-  <!-- Link đến file CSS -->
+  <!-- link file CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- font type -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
@@ -15,14 +19,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
+<!-- #############################################################################################################################
+    BODY
+############################################################################################################################# -->
 <body>
-  <!-- Header / Hero -->
+  <!-- ==================================================================================================================
+    HEADER
+  ================================================================================================================== -->
   <header class="hero">
     <div class="overlay"></div>
+    <!-- ---------------------------------------------------------------------------
+      HERO BACKGROUND IMAGE
+    --------------------------------------------------------------------------- -->
     <img src="assets/images/hero.webp" alt="An & Kha" class="hero-image" />
-    <!-- LOVE DAYS HEART -->
+    <!-- ---------------------------------------------------------------------------
+      LOVE DAYS COUNTER
+    --------------------------------------------------------------------------- -->
     <div class="love-heart">
       <svg viewBox="0 0 110 100" class="heart-svg">
         <path
@@ -34,31 +48,32 @@
       </svg>
       <div class="love-text">
         <span id="lovendays">0</span>
-        <span id="lovetext">days</span>
+        <span id="lovetext">lovedays</span>
       </div>
     </div>
-    <!-- Music Toggle Button -->
+    <!-- ---------------------------------------------------------------------------
+      BACKGROUND MUSIC CONTROL
+    --------------------------------------------------------------------------- -->
     <audio id="bg-music" src="assets/music/Sugar.mp3" loop></audio>
     <div id="music-btn" class="music-btn paused">
         <img id="disc-icon" src="assets/images/guitar.png" alt="Music Disc">
     </div>
-
-    <!-- CONTEXT FOR HERO -->
+    <!-- ---------------------------------------------------------------------------
+      HERO TEXT CONTENT
+    --------------------------------------------------------------------------- -->
     <div class="hero-content wedding-style">
       <div class="we-get-married">We get married!</div>
-
       <div class="couple-names">
         <div class="bride">MINH ÂN</div>
         <div class="and">&</div>
         <div class="groom">THU KHA</div>
       </div>
-
       <div class="wedding-date">24.01.2026</div>
-
       <div class="info-sentences">We will become husband and wife in</div>
     </div>
-
-    <!-- COUNTDOWN -->
+    <!-- ---------------------------------------------------------------------------
+      COUNTDOWN TIMER
+    --------------------------------------------------------------------------- -->
     <div class="hero-countdown">
       <div class="timer">
         <div><span id="days">0</span><small>Ngày</small></div>
@@ -68,17 +83,20 @@
       </div>
     </div>
   </header>
-
-  <!-- ################################### main ################################### -->
+  <!-- ==================================================================================================================
+    MAIN
+  ================================================================================================================== -->
   <main>
+    <!-- ---------------------------------------------------------------------------
+      BUTTON SECTION
+    --------------------------------------------------------------------------- -->
     <section id="wishes" class="actions">
       <button class="btn primary" id="btnWishes">Gửi lời chúc</button>
       <button class="btn secondary" id="btnGallery">Ảnh của tụi mình nè!</button>
     </section>
-
-    <!-- =========================================
-     SAVE THE DATE SECTION (Thông tin gia đình)
-     ========================================= -->
+    <!-- ---------------------------------------------------------------------------
+      SAVE THE DATE SECTION
+    --------------------------------------------------------------------------- -->
     <section class="save-date-section">
 
       <div class="save-the-date">
@@ -125,9 +143,9 @@
       </div>
 
     </section>
-    <!-- =========================================
-     INVITATION CARD (Thiệp thông tin nhà hàng)
-     ========================================= -->
+    <!-- ---------------------------------------------------------------------------
+      INVITATION CARD
+    --------------------------------------------------------------------------- -->
     <section class="invitation-section">
       <div class="invite-sentences">Thư mời tham dự</div>
             
@@ -222,9 +240,9 @@
       </div>
 
     </section>
-    <!-- =========================================
-     CALENDAR
-     ========================================= -->
+    <!-- ---------------------------------------------------------------------------
+      CALENDAR SECTION
+    --------------------------------------------------------------------------- -->
     <section class="calendar-section">
 
       <!-- Background -->
@@ -296,9 +314,9 @@
         <img src="assets/images/heart-groom.webp" class="calendar-icon groom" alt="">
       </div>
     </section>
-    <!-- =========================================
-    CONFIRM JOIN
-    ========================================= -->
+    <!-- ---------------------------------------------------------------------------
+      CONFIRM JOIN SECTION
+    --------------------------------------------------------------------------- -->
     <section id="confirm-join" class="confirm-section">
       <div class="confirm-card">
         <h2>Xác nhận tham dự</h2>
@@ -352,14 +370,9 @@
 
       </div>
     </section>
-
-
-
-
-
-<!-- =========================================
-  ALBUM
-  ========================================= -->
+    <!-- ---------------------------------------------------------------------------
+      ALBUM SECTION
+    --------------------------------------------------------------------------- -->
     <section id="gallery-section" class="section center">
       <h2>Ảnh kỷ niệm</h2>
 
@@ -403,17 +416,13 @@
 
       </div>
     </section>
-
-
     <!-- LIGHTBOX -->
     <div id="lightbox">
       <img id="lightbox-img">
     </div>
-
-<!-- =========================================
-WISH
-========================================= -->
-<!-- https://docs.google.com/spreadsheets/d/1Pe6_GDJe2HybvR_2vLUuDg3-jUbv-xxEYG32jJMhq5s/edit?usp=sharing -->
+    <!-- ---------------------------------------------------------------------------
+      SEND WISH SECTION
+    --------------------------------------------------------------------------- -->
     <section id="wish-section" class="section center">
       <h2>Gửi lời chúc</h2>
 
@@ -466,9 +475,9 @@ WISH
         </div>
       </div>
     </div>
-
-
-
+    <!-- ---------------------------------------------------------------------------
+      FOOTER SECTION
+    --------------------------------------------------------------------------- -->
     <!-- Footer -->
     <footer class="footer">
       <p>© Minh Ân & Thu Kha — Cảm ơn mọi người</p>

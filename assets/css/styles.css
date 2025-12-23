@@ -1,17 +1,17 @@
-/* ============================
-   RESET
-============================ */
+/* #############################################################################################################################
+    RESET
+############################################################################################################################# */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html,body { height: 100%; font-family: system-ui, -apple-system, "Segoe UI"; color:#222; }
 
+/* #############################################################################################################################
+    HEADER
+############################################################################################################################# */
 header {
   position: relative;
   width: 100%;
 }
 
-/* ============================
-   HERO
-============================ */
 .hero {
   position: relative;
   height: 100vh;             /* CHỈNH: thay 150vh → 100vh */
@@ -22,7 +22,13 @@ header {
   text-align: center;
   overflow: hidden;
 }
-
+.overlay {
+  position: absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
+}
+/* ---------------------------------------------------------------------------
+  HERO BACKGROUND IMAGE
+--------------------------------------------------------------------------- */
 .hero-image {
   position: absolute;
   inset: 0;
@@ -31,14 +37,9 @@ header {
   object-fit: cover;
   filter: brightness(1); /*Chỉnh sáng tối cho ảnh*/
 }
-
-.overlay {
-  position: absolute; inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
-}
-/* ============================
-   BEAUTIFUL HEART BADGE
-============================ */
+/* ---------------------------------------------------------------------------
+  LOVE DAYS COUNTER
+--------------------------------------------------------------------------- */
 .love-text {
   display: flex;
   flex-direction: column;
@@ -52,7 +53,7 @@ header {
 }
 
 #lovetext {
-  font-size: 17px;
+  font-size: 13px;
   letter-spacing: 1px;
   margin-top: 2px;
 }
@@ -98,9 +99,7 @@ header {
   transform: translateY(-6px);
 }
 
-
-
-/* ------------tim đập---------- */
+/* ------------ animation ---------- */
 @keyframes heartBeat {
   0%   { transform: scale(0.55) }
   50%  { transform: scale(0.60) }
@@ -113,8 +112,8 @@ header {
   font-weight: 700;
   transform: translateY(-6px);
 }
-/* ------------------------ */
-/* -----------tim rơi----------- */
+
+/* ----- Falling heart animation--- */
 .falling-heart {
   position: fixed;
   top: -60px;
@@ -134,7 +133,7 @@ header {
     rotate var(--rotate-duration) ease-in-out infinite;
 }
 
-/* RƠI XUỐNG */
+/* Falling */
 @keyframes fall {
   to {
     transform: translateY(120vh);
@@ -156,10 +155,9 @@ header {
   100% { rotate: 0deg; }
 }
 
-/* ------------------------ */
-/* ===========================
-   MUSIC BUTTON (FIXED)
-===========================*/
+/* ---------------------------------------------------------------------------
+  MUSIC BUTTON
+--------------------------------------------------------------------------- */
 .music-btn {
   position: fixed;
   top: 20px;
@@ -197,11 +195,9 @@ header {
   to   { transform: rotate(360deg); }
 }
 
-
-
-/* ##############################################################################################################################################
-   HERO CONTENT (CONTAINER CHÍNH)
-############################################################################################################################################## */
+/* ---------------------------------------------------------------------------
+  HERO TEXT CONTENT
+--------------------------------------------------------------------------- */
 .wedding-style {
   /* --- Position & layout --- */
   position: absolute;              /* định vị hero content theo hero */
