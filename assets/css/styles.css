@@ -842,21 +842,23 @@ header {
    KHỐI LỄ (VU QUY / THÀNH HÔN)
 ================================ */
 .ceremony {
-  margin: 24px 0;
+  margin: 3px 0;
 }
 
 .ceremony-title {
+  line-height: 1.6; 
   border-radius: 6px;
   color: #ffffff;
   background: #7c0a0a;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 .ceremony-time {
   color: #300707;
   font-size: 13px;
-  margin-bottom: 12px;
+  margin-bottom: 0px;
 }
 
 /* Ngày lớn ở giữa */
@@ -866,13 +868,16 @@ header {
   justify-content: center;
   align-items: baseline;
   gap: 12px;
+  margin-bottom: -5px;
 }
 /* Ngày lớn ở giữa */
 .ceremony-lunar {
-  color: #300707;
+  color: #b93a3a;
+  margin-bottom: 5px;
 }
 .ceremony-place {
   color: #300707;
+  font-weight: 500;
 }
 
 .ceremony-date strong {
@@ -880,85 +885,58 @@ header {
   color: #ce2525;
 }
 
-/* ===============================
-   TRANG TRÍ ĐƯỜNG
-================================ */
+.ceremony-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
+
 .route-wrapper {
   position: relative;
   width: 100%;
-  max-width: 360px;
-  min-width: 280px;   /* 🔑 NGĂN THU NHỎ QUÁ */
-
-  margin: 30px auto;
-  aspect-ratio: 360 / 180;
-}
-
-
-/* ===============================
-   NHÀ GÁI / NHÀ TRAI
-================================ */
-.house {
-  transform-origin: center;
-  scale: clamp(0.8, 1vw, 1);
-}
-
-.house {
-  position: absolute;
-  text-align: center;
-  z-index: 2;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  max-width: 120px;        /* 🔑 giới hạn ngang */
-  word-wrap: break-word;
-}
-
-
-
-.house-name {
-  font-size: 13px;
-  color: #c07a52;
-}
-
-.house a {
-  display: inline-block;
-  margin-top: 4px;
-  padding: 4px 10px;
-  font-size: 11px;
-  background: #a51111;
-  color: #d88888;
-  border-radius: 12px;
-  text-decoration: none;
-}
-
-.house {
-  position: absolute;
-  text-align: center;
-  z-index: 2; /* 🔑 nằm trên ảnh */
-}
-
-/* NHÀ GÁI – GÓC TRÊN PHẢI */
-.house.bride {
-  top: 14%;
-  right: 27%;
-}
-
-/* NHÀ TRAI – GÓC DƯỚI TRÁI */
-.house.groom {
-  top: 77%;
-  left: 26%;
+  max-width: 460px;
+  grid-row: 2;
 }
 
 .roadhouse {
-  width: 100%;        /* ⬅️ GIẢM KÍCH THƯỚC TỔNG THỂ */
-  max-width: 360px;  /* ⬅️ KHÓA KÍCH THƯỚC TRÊN LAPTOP */
-  height: auto;      /* ⬅️ BẮT BUỘC để không méo hình */
-  margin: 12px auto; /* ⬅️ THU HẸP KHOẢNG CÁCH TRÊN DƯỚI */
+  width: 100%;
+  height: auto;
   display: block;
 }
 
+/* HOUSE dùng trong ceremony */
+.ceremony .house {
+  margin-top: 12px;          /* cách dòng "TẠI TƯ GIA..." */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  position: static;          /* ❌ KHÔNG absolute */
+  transform: none;           /* ❌ KHÔNG translate */
+}
+
+/* Text Nhà Gái / Nhà Trai */
+.ceremony .house-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #7c0a0a;
+}
+
+/* Nút chỉ đường */
+.ceremony .house .map-btn {
+  margin-top: 4px;
+  padding: 6px 14px;
+  font-size: 12px;
+
+  background: #7c0a0a;
+  color: #fff;
+
+  border-radius: 14px;
+  text-decoration: none;
+
+  display: inline-block;
+}
 
 
 /* ================================================================================================================
