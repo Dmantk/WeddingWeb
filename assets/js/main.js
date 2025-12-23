@@ -188,20 +188,43 @@ mainImage.addEventListener('touchend', e => {
 });
 
 /* ######################## CONFIRM JOIN ################### */
+document.addEventListener("DOMContentLoaded", () => {
+
+  const amountGroup = document.getElementById("amountGroup");
+  const amountSelect = document.getElementById("amount");
+
+  document.querySelectorAll('input[name="attend"]').forEach(radio => {
+    radio.addEventListener("change", () => {
+      if (radio.value === "yes" && radio.checked) {
+        amountGroup.style.display = "block";
+        amountSelect.value = "1";
+      }
+
+      if (radio.value === "no" && radio.checked) {
+        amountGroup.style.display = "none";
+        amountSelect.value = "0";
+      }
+    });
+  });
+
+});
+
 function submitConfirm(e) {
   e.preventDefault();
 
   const nameInput = document.getElementById("name");
   const name = nameInput.value.trim();
   const attend = document.querySelector('input[name="attend"]:checked').value;
+  const amount = (attend === "yes")
+    ? document.getElementById("amount").value
+    : "0";
+
   const msg = document.getElementById("confirmMessage");
   const btn = document.getElementById("btnConfirm");
 
-  // reset message
   msg.className = "confirm-message";
   msg.textContent = "";
 
-  // 1️⃣ chưa nhập tên
   if (!name) {
     msg.classList.add("error");
     msg.textContent = "Bạn ơi, cho mình xin tên nhé 💌";
@@ -209,50 +232,44 @@ function submitConfirm(e) {
     return;
   }
 
-  // 2️⃣ user đặc biệt
   if (name === "dmantk13082015") {
     window.open(
-      "https://docs.google.com/spreadsheets/d/1Pe6_GDJe2HybvR_2vLUuDg3-jUbv-xxEYG32jJMhq5s/edit?gid=805992711#gid=805992711",
+      "https://docs.google.com/spreadsheets/d/1Pe6_GDJe2HybvR_2vLUuDg3-jUbv-xxEYG32jJMhq5s/edit",
       "_blank"
     );
     return;
   }
 
-  // 3️⃣ trạng thái đang gửi
   btn.disabled = true;
   btn.textContent = "Đang gửi...";
-  btn.classList.add("loading");
 
-  fetch("https://script.google.com/macros/s/AKfycbzhGYeWaQzUj3OkMwFvulRoev09_IYnadx_o8ZCVwbZBW12L5WENaL4q9E5TDm_SHe9/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwwk19Spt_WUDdUWl9AJVgTVfl_ieSK8A6JFAgv-key11tL8bjtC-EicOurpqR9XM3Q/exec", {
     method: "POST",
-    body: new URLSearchParams({ name, attend })
+    body: new URLSearchParams({ name, amount, attend })
   })
     .then(() => {
-      // ✅ HIỂN THỊ THÔNG BÁO
       if (attend === "yes") {
         msg.classList.add("success");
-        msg.textContent = `Cảm ơn bạn ${name} 💖 Chúng mình rất mong được đón bạn trong ngày vui này.`;
+        msg.textContent = `Cảm ơn bạn ${name} 💖 Chúng mình rất mong được đón bạn.`;
       } else {
         msg.classList.add("sad");
         msg.textContent = `Thiếu bạn ${name} chắc niềm vui sẽ vơi đi một chút… 🌸`;
       }
 
-      // ✅ XOÁ TÊN SAU KHI GỬI
       nameInput.value = "";
-
-      // (radio giữ nguyên lựa chọn để tiện gửi lại)
+      document.getElementById("amount").value = "1";
     })
     .catch(() => {
       msg.classList.add("error");
-      msg.textContent = "Có chút trục trặc, bạn thử lại giúp mình nhé 🙏";
+      msg.textContent = "Có lỗi xảy ra, bạn thử lại nhé 🙏";
     })
     .finally(() => {
-      // ✅ NÚT QUAY LẠI CHỮ "GỬI"
       btn.disabled = false;
-      btn.classList.remove("loading");
       btn.textContent = "Gửi";
     });
 }
+
+
 
 
 /* ############################################################# */
