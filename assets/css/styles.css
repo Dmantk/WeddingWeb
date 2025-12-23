@@ -593,6 +593,25 @@ header {
 /* ======================================
    COUPLE NAME – KHỐI CHÍNH
 ====================================== */
+.name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.name .title {
+  font-family: "Playfair Display", serif; /* font trang trọng */
+  font-size: clamp(14px, 3vw, 18px);
+  letter-spacing: 1px;
+  color: #555;
+}
+.name .fullname {
+  font-family: "Cookie", cursive; /* font chữ ký */
+  font-size: clamp(26px, 6vw, 36px);
+  font-weight: 400;
+  color: #000;
+}
+
 .couple-name {
   /* Layout tổng */
   display: flex;                         /* xếp các cụm theo cột */
