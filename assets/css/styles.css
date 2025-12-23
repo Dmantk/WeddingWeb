@@ -710,11 +710,6 @@ header {
 /* ===========================================================================
      CARD SECTION
    =========================================================================== */
-.invitation-section {
-    display: grid;
-    gap: 25px;
-    padding: 20px;
-}
 
 .invite-sentences {
   text-align: center;
