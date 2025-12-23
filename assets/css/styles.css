@@ -1553,3 +1553,15 @@ header {
   }
 }
 
+.invite-card,
+.ceremony-card {
+  overflow: hidden; /* chặn tràn */
+}
+
+.invite-card *,
+.ceremony-card * {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+}
