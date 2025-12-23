@@ -90,6 +90,9 @@ const enableMusic = () => {
 };
 
 window.addEventListener("pointerdown", enableMusic, { once: true });
+document.body.addEventListener("click", enableMusic, { once: true });
+document.body.addEventListener("touchstart", enableMusic, { once: true });
+
 
 // Khi bấm nút → bật/tắt nhạc
 btn.addEventListener("click", (e) => {
