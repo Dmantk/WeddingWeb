@@ -991,39 +991,44 @@ header {
   margin-top: 50px;
   text-align: center;
   color: #fff;
-  font-size: 32px;
+  font-size: 22px;
   letter-spacing: 4px;
 }
 
 /* ===== WRAPPER ===== */
 .calendar-wrapper {
   position: absolute;
-  top: 120px;
-  right: 40px;
+  top: clamp(80px, 12vh, 140px);
+  right: clamp(16px, 9vw, 40px);
   z-index: 3;
+
+  /* 🔑 BIẾN KÍCH THƯỚC */
+  --cell: clamp(22px, 7vw, 36px);
+  --gap: clamp(6px, 2.5vw, 14px);
 }
 
 .calendar-grid {
-  position: relative; /* 🔥 MỐC CHUẨN */
   display: grid;
-  grid-template-columns: repeat(7, 30px);
-  gap: 12px;
+  grid-template-columns: repeat(7, var(--cell));
+  gap: var(--gap);
 }
+
 /* ===== DAY (TẤT CẢ GIỐNG NHAU) ===== */
 .day {
-  width: 30px;
-  height: 30px;
+  width: var(--cell);
+  height: var(--cell);
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 13px;
-  color: #fff;
-  opacity: .9;
+  font-size: clamp(11px, 2vw, 14px);
+  line-height: 1;
 
-  line-height: 1;        /* 🔒 CHỐNG FONT ĐẨY GRID */
-  box-sizing: border-box;
+  color: #fff;
+  opacity: 0.9;
 }
+
 
 /* header & empty KHÔNG PHÁ GRID */
 .day.header {
