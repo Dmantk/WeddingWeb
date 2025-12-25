@@ -357,8 +357,6 @@ header {
   margin: 0;
 }
 
-
-
 /* ##############################################################################################################################################
    HERO CONTENT (CONTAINER CHÍNH)
 ############################################################################################################################################## */
@@ -1063,6 +1061,36 @@ header {
   z-index: 5;
   transform: translate(-2px, -2px); /* tim ôm số */
 }
+
+.calendar-slogan {
+  position: absolute;
+  bottom: 110px;      /* cách cạnh dưới ảnh 10px */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  z-index: 5;
+}
+
+.sologan1,
+.sologan2 {
+  margin: 0;
+  color: #fff;       /* nếu nền tối */
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.sologan1 {
+  font-family: "Smooch Sans", serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+.sologan2 {
+  font-family: "Corinthia", serif;
+  font-size: 42px;
+  font-weight: 500;
+}
+
 /* ======================================================= confirm section ======================================================= */
 .confirm-section {
   padding: 80px 16px;
@@ -1445,7 +1473,15 @@ header {
 }
 
 /* FOOTER */
-.footer { text-align:center; padding:1rem 0; opacity:.8; }
+.footer { 
+  text-align:center; 
+  padding:1rem 0; 
+  opacity:.8; 
+
+  font-family: "Corinthia", serif;
+  font-size: 42px;
+  font-weight: 500;
+}
 
 /* ============================
    RESPONSIVE (MOBILE)

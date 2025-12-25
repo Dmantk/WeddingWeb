@@ -165,9 +165,11 @@ function setActive(index) {
   mainImage.src = thumbs[currentIndex].src;
 
   thumbs[currentIndex].scrollIntoView({
-    behavior: 'smooth',
-    inline: 'center'
+  behavior: 'smooth',
+  inline: 'center',
+  block: 'nearest'   // ⭐ quan trọng
   });
+
 }
 
 /* SWIPE ẢNH LỚN */
