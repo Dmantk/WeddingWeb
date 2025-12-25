@@ -385,14 +385,16 @@
       ALBUM SECTION
     --------------------------------------------------------------------------- -->
     <section id="gallery-section" class="section center">
-      <h2>Ảnh kỷ niệm</h2>
+      <h2>Album</h2>
 
       <div class="gallery-slider">
 
         <!-- ẢNH LỚN -->
-        <div class="gallery-main" id="galleryMain">
-          <img id="mainImage" src="assets/images/pic1.webp" alt="main">
+        <div class="gallery-main cinematic">
+          <div class="cinematic-bg"></div>
+          <img id="mainImage" class="cinematic-img" src="assets/images/pic1.webp" alt="main">
         </div>
+
 
         <!-- THUMBNAILS -->
         <div class="gallery-thumbs-wrapper fade-edge">
@@ -429,6 +431,7 @@
     </section>
     <!-- LIGHTBOX -->
     <div id="lightbox">
+      <span class="lightbox-close">×</span>
       <img id="lightbox-img">
     </div>
     <!-- ---------------------------------------------------------------------------

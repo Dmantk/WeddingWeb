@@ -150,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const thumbs = document.querySelectorAll('.gallery-thumbs img');
 const mainImage = document.getElementById('mainImage');
 const thumbsContainer = document.getElementById('thumbs');
+const bg = document.querySelector('.cinematic-bg');
 
 let currentIndex = 0;
 
@@ -162,15 +163,20 @@ function setActive(index) {
   thumbs[currentIndex].classList.remove('active');
   currentIndex = index;
   thumbs[currentIndex].classList.add('active');
-  mainImage.src = thumbs[currentIndex].src;
+
+  const src = thumbs[currentIndex].src;
+  mainImage.src = src;
+
+  // ⭐ cập nhật nền mờ
+  if (bg) bg.style.backgroundImage = `url(${src})`;
 
   thumbs[currentIndex].scrollIntoView({
-  behavior: 'smooth',
-  inline: 'center',
-  block: 'nearest'   // ⭐ quan trọng
+    behavior: 'smooth',
+    inline: 'center',
+    block: 'nearest'
   });
-
 }
+
 
 /* SWIPE ẢNH LỚN */
 let startX = 0;
@@ -191,6 +197,51 @@ mainImage.addEventListener('touchend', e => {
     }
   }
 });
+
+/* ===== LIGHTBOX GALLERY ===== */
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.lightbox-close');
+
+let lbStartX = 0;
+
+/* mở lightbox khi click ảnh lớn */
+mainImage.addEventListener('click', () => {
+  lightbox.style.display = 'flex';
+  lightboxImg.src = mainImage.src;
+  document.body.style.overflow = 'hidden'; // khóa scroll
+});
+
+/* đóng */
+closeBtn.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+function closeLightbox() {
+  lightbox.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+/* swipe trái phải */
+lightboxImg.addEventListener('touchstart', e => {
+  lbStartX = e.touches[0].clientX;
+});
+
+lightboxImg.addEventListener('touchend', e => {
+  const endX = e.changedTouches[0].clientX;
+  const diff = lbStartX - endX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff > 0 && currentIndex < thumbs.length - 1) {
+      setActive(currentIndex + 1);
+    } else if (diff < 0 && currentIndex > 0) {
+      setActive(currentIndex - 1);
+    }
+    lightboxImg.src = mainImage.src;
+  }
+});
+
 
 /* ######################## CONFIRM JOIN ################### */
 document.addEventListener("DOMContentLoaded", () => {
