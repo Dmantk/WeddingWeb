@@ -283,7 +283,7 @@ function submitConfirm(e) {
 
   if (!name) {
     msg.classList.add("error");
-    msg.textContent = "Bạn ơi, cho mình xin tên nhé 💌";
+    msg.textContent = "😊 Bạn gì đó ơi, hình như bạn quên một bước nhỏ rồi.";
     nameInput.focus();
     return;
   }
@@ -306,10 +306,10 @@ function submitConfirm(e) {
     .then(() => {
       if (attend === "yes") {
         msg.classList.add("success");
-        msg.textContent = `Cảm ơn bạn ${name} 💖 Chúng mình rất mong được đón bạn.`;
+        msg.textContent = `Cảm ơn ${name} nha! 💖 Ngày vui có ${name} là điều tụi mình quý lắm.`;
       } else {
         msg.classList.add("sad");
-        msg.textContent = `Thiếu bạn ${name} chắc niềm vui sẽ vơi đi một chút… 🌸`;
+        msg.textContent = `Tiếc là hôm đó không có ${name}, nhưng tụi mình rất quý ${name}.🌸`;
       }
 
       nameInput.value = "";
@@ -317,7 +317,7 @@ function submitConfirm(e) {
     })
     .catch(() => {
       msg.classList.add("error");
-      msg.textContent = "Có lỗi xảy ra, bạn thử lại nhé 🙏";
+      msg.textContent = "😥 Hình như có lỗi rồi, ${name} gửi lại nhé🙏";
     })
     .finally(() => {
       btn.disabled = false;
@@ -343,7 +343,7 @@ function sendWish() {
 
   if (!name || !message) {
     alertBox.style.color = 'red';
-    alertBox.textContent = '⚠️ Vui lòng nhập đầy đủ tên và lời chúc nhé!';
+    alertBox.textContent = '😊 Bạn gì đó ơi, hình như bạn quên một bước nhỏ rồi.';
     return;
   }
 
@@ -358,14 +358,14 @@ function sendWish() {
     .then(res => res.json())
     .then(() => {
       alertBox.style.color = 'green';
-      alertBox.textContent = `💖 Cảm ơn lời chúc của bạn ${name}!`;
+      alertBox.textContent = `Tụi mình nhận được lời chúc rồi, cảm ơn món quà vô giá này của ${name} nha!`;
 
       document.getElementById('wishName').value = '';
       document.getElementById('wishMessage').value = '';
     })
     .catch(() => {
       alertBox.style.color = 'red';
-      alertBox.textContent = '❌ Gửi chưa thành công, thử lại nhé!';
+      alertBox.textContent = `😥 Hình như có lỗi rồi, thử lại lần nữa nha ${name}.`;
     })
     .finally(() => {
       // 🔓 mở nút + trả text về ban đầu
