@@ -384,3 +384,16 @@ function closeQR() {
   document.getElementById('qrPopup').style.display = 'none';
 }
 
+// Chặn Ctrl + scroll
+  window.addEventListener('wheel', function (e) {
+    if (e.ctrlKey) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  // Chặn Ctrl + + / -
+  window.addEventListener('keydown', function (e) {
+    if (e.ctrlKey && ['+', '-', '='].includes(e.key)) {
+      e.preventDefault();
+    }
+  });
