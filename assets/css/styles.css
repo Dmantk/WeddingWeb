@@ -1,3 +1,20 @@
+/* ===== PAGE WRAPPER (FIX MAX WIDTH) ===== */
+body {
+  margin: 0;
+  background: #ffffff; /* phần dư 2 bên */
+  display: flex;
+  justify-content: center;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 720px;     /* 🔒 FIX SIZE TỐI ĐA */
+  min-height: 100vh;
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0,0,0,0.06);
+}
+
+
 /* #############################################################################################################################
     RESET
 ############################################################################################################################# */
@@ -15,6 +32,7 @@ header {
 
 .hero {
   position: relative;
+  max-width: 720px;
   height: 100vh;             /* CHỈNH: thay 150vh → 100vh */
   min-height: 500px;
   display: flex;
@@ -22,6 +40,7 @@ header {
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  margin: 0 auto;
 }
 .overlay {
   position: absolute; inset:0;
@@ -161,20 +180,23 @@ header {
 --------------------------------------------------------------------------- */
 .music-btn {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  width: 35px;
-  height: 35px;
+  top: 16px;
+  z-index: 999;
+
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(6px);
+  background: #fff;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  /* ⭐ FIX QUAN TRỌNG */
+  right: calc(50% - 360px + 16px);
 }
+
 
 /* Icon đĩa */
 #disc-icon {
@@ -1533,15 +1555,42 @@ header {
 /* ============================
    RESPONSIVE (MOBILE)
 ============================ */
-@media (max-width: 768px) {
+@media (min-width: 721px) {
+
+  /* WE GET MARRIED */
+  .we-get-married {
+    font-size: 58px;                       /* 🔒 khóa cứng */
+    transform: translate(210px, -250px) rotate(-10deg);
+  }
+
+  /* COUPLE NAMES */
+  .hero .couple-names {
+    font-size: 36px;                       /* 🔒 khóa */
+    --spread: 10px;                       /* 🔒 khóa */
+  }
+
+  /* SAVE THE DATE */
+  .save-the-date .line {
+    font-size: 72px;                       /* 🔒 thay 10vw */
+  }
+
+}
+
+
+@media (max-width: 721px) {
 
   .hero {
     height: 85vh;                    /* phù hợp mobile */
     min-height: 520px;
   }
+
+  .music-btn {
+    right: 16px;
+  }
+  
   .we-get-married {
-    transform: translate(19vw, -25vh) rotate(-10deg);
-    font-size: 52px;
+    transform: translate(23vw, -25vh) rotate(-10deg);
+    font-size: 47px;
   }
 
   .hero-content {
@@ -1629,35 +1678,10 @@ header {
   }
 }
 
-
 /* =====================================================
    DESKTOP / LAPTOP
    Giảm độ dịch để tránh che lấn bố cục
 ===================================================== */
-@media (min-width: 1024px) {
-
-  .wedding-style {
-    top: 55%;                /* đẩy cụm xuống nhẹ */
-    transform: translate(-50%, -40%);
-  }
-
-  .we-get-married {
-    transform: translate(30vw, -27vh) rotate(-10deg);
-    font-size: 80px;
-  }
-
-  .hero .couple-names {
-    --spread: clamp(40px, 8vw, 160px);
-  }
-
-  .wedding-date {
-    transform: translate(0px, 30px);   /* ❗ GIẢM */
-  }
-
-  .info-sentences {
-    margin-top: 10px;        /* giữ câu phụ sát ngày */
-  }
-}
 
 .invite-card,
 .ceremony-card {
