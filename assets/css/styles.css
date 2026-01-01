@@ -1199,6 +1199,14 @@ header {
 
 
 /* ===== GALLERY SLIDER ===== */
+#gallery-section h2 {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  font-family: serif;
+  color: #000000;
+  font-weight: 300;
+}
+
 .gallery-slider {
   max-width: 900px;
   margin: auto;
@@ -1368,6 +1376,7 @@ header {
 
 /* ===== WISH SECTION ===== */
 #wish-section h2 {
+  margin-top: -30px;
   margin-bottom: 20px;
 }
 
