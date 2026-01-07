@@ -1,41 +1,499 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
+<!-- #############################################################################################################################
+    HEAD
+############################################################################################################################# -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thiệp cưới Minh Ân & Thu Kha</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #000;
-      color: #fff;
-      font-family: 'Segoe Script', cursive;
-      text-align: center;
-    }
-    .box {
-      max-width: 90%;
-    }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 16px;
-    }
-    p {
-      font-size: 18px;
-      opacity: 0.8;
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+  />
+  <title>An & Kha - Wedding</title>
+  <link rel="icon" href="assets/icons/favicon.png" />
+  <!-- link file CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- font type -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Corinthia&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair&display=swap" rel="stylesheet">
 </head>
+<!-- #############################################################################################################################
+    BODY
+############################################################################################################################# -->
 <body>
-  <div class="box">
-    <h1>Minh Ân & Thu Kha</h1>
-    <p>Thiệp cưới online sẽ được mở lại ngày 08-01 💍</p>
-    <p>Rất mong bạn quay lại sau</p>
+  <div class="page-wrapper">
+  <!-- ==================================================================================================================
+    HEADER
+  ================================================================================================================== -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <!-- ---------------------------------------------------------------------------
+      HERO BACKGROUND IMAGE
+    --------------------------------------------------------------------------- -->
+    <img src="assets/images/hero.webp" alt="An & Kha" class="hero-image" />
+    <!-- ---------------------------------------------------------------------------
+      LOVE DAYS COUNTER
+    --------------------------------------------------------------------------- -->
+    <div class="love-heart">
+      <svg viewBox="0 0 110 100" class="heart-svg">
+        <path
+          d="M55 95 L10 55 A25 25 0 0 1 55 15 A25 25 0 0 1 100 55 Z"
+          fill="none"
+          stroke="#d4162c"
+          stroke-width="4"
+        />
+      </svg>
+      <div class="love-text">
+        <span id="lovendays">0</span>
+        <span id="lovetext">lovedays</span>
+      </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------
+      BACKGROUND MUSIC CONTROL
+    --------------------------------------------------------------------------- -->
+    <audio id="bg-music" src="assets/music/Yes_I_Do.mp3" loop></audio>
+    <div id="music-btn" class="music-btn paused">
+        <img id="disc-icon" src="assets/images/guitar.png" alt="Music Disc">
+    </div>
+    <!-- ---------------------------------------------------------------------------
+      HERO TEXT CONTENT
+    --------------------------------------------------------------------------- -->
+    <div class="hero-content wedding-style">
+      <div class="we-get-married">We get married!</div>
+      <div class="couple-names">
+        <div class="bride">Minh Ân</div>
+        <div class="and">&</div>
+        <div class="groom">Thu Kha</div>
+      </div>
+      <div class="wedding-date">24.01.2026</div>
+    </div>
+    <!-- ---------------------------------------------------------------------------
+      COUNTDOWN TIMER
+    --------------------------------------------------------------------------- -->
+    <div class="hero-footer">
+      <p class="info-sentences">
+        We will become husband and wife in
+      </p>
+      <div class="hero-countdown">
+        <div class="timer">
+          <div><span id="days">0</span><small>Ngày</small></div>
+          <div><span id="hours">0</span><small>Giờ</small></div>
+          <div><span id="mins">0</span><small>Phút</small></div>
+          <div><span id="secs">0</span><small>Giây</small></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ==================================================================================================================
+    MAIN
+  ================================================================================================================== -->
+  <main>
+    <!-- ---------------------------------------------------------------------------
+      BUTTON SECTION
+    --------------------------------------------------------------------------- -->
+    <section id="wishes" class="actions">
+      <button class="btn primary" id="btnWishes">Gửi lời chúc</button>
+      <button class="btn secondary" id="btnGallery">Ảnh của tụi mình nè!</button>
+    </section>
+    <!-- ---------------------------------------------------------------------------
+      SAVE THE DATE SECTION
+    --------------------------------------------------------------------------- -->
+    <section class="save-date-section">
+
+      <div class="save-the-date">
+        <span class="line save">SAVE</span>
+        <span class="line the">the</span>
+        <span class="line date">DATE</span>
+      </div>
+
+      <div class="families">
+        <div class="family left">
+          <h3>Nhà trai</h3>
+          <p>Ông. Dương Viết Tảo</p>
+          <p>Bà. Trần Thị Tiên</p>
+          <p>TP. Đà Nẵng</p>
+        </div>
+        <div class="divider"></div>
+        <div class="family right">
+          <h3>Nhà gái</h3>
+          <p>Ông. Nguyễn Cảnh</p>
+          <p>Bà. Võ Thị Thu Hoa</p>
+          <p>TP. Đà Nẵng</p>
+        </div>
+      </div>
+
+      <p class="invite-text">
+        Trân trọng báo tin lễ thành hôn của
+      </p>
+
+      <div class="couple-name">
+        <!-- ===== CHÚ RỂ ===== -->
+        <div class="person groom">
+          <div class="photo groom-photo">
+            <img src="assets/images/chure.webp" alt="Groom">
+          </div>
+          <div class="name groom-name">
+            <span class="title">Chú rể</span>
+            <span class="fullname">Minh Ân</span>
+          </div>
+
+        </div>
+        <!-- ===== CÔ DÂU ===== -->
+        <div class="person bride">
+          <div class="name bride-name">
+            <span class="title">Cô dâu</span>
+            <span class="fullname">Thu Kha</span>
+          </div>
+          <div class="photo bride-photo">
+            <img src="assets/images/codau.webp" alt="Bride">
+          </div>   
+        </div>
+      </div>
+
+    </section>
+    <!-- ---------------------------------------------------------------------------
+      INVITATION CARD
+    --------------------------------------------------------------------------- -->
+    <section class="invitation-section">
+      <div class="invite-sentences">Thư mời tham dự</div>
+            
+      <!-- Thiệp nhà gái -->
+      <div class="card invite-card">
+          <h2 class="title">TIỆC CƯỚI NHÀ GÁI</h2>
+          <p class="subtitle">CHỦ NHẬT - 10:30</p>
+
+          <p class="date">18 . 01 . 2026</p>
+          <p class="lunar">Tức Ngày 30 tháng 11 năm Ất Tỵ</p>
+
+          <h3 class="place-title">TẠI NHÀ HÀNG PHƯƠNG THY</h3>
+          <p class="address">494 Tiểu La - Thăng Bình - TP.Đà Nẵng</p>
+
+          <a class="map-btn" href="https://maps.app.goo.gl/N9VqMQYYeVvaipXR8" target="_blank">
+              Xem chỉ đường
+          </a>
+      </div>
+
+      <!-- Thiệp nhà trai -->
+      <div class="card invite-card">
+          <h2 class="title">TIỆC CƯỚI NHÀ TRAI</h2>
+          <p class="subtitle">THỨ BẢY - 11:00</p>
+
+          <p class="date">24 . 01 . 2026</p>
+          <p class="lunar">Tức Ngày 06 tháng 12 năm Ất Tỵ</p>
+
+          <h3 class="place-title">TẠI NHÀ HÀNG HAPPINESS PALACE</h3>
+          <p class="address">33 Trần Phú - Thăng Bình - TP.Đà Nẵng</p>
+
+          <a class="map-btn" href="https://maps.app.goo.gl/VVYvvMRuQKikHpG26" target="_blank">
+              Xem chỉ đường
+          </a>
+      </div>
+
+      <!-- Lễ vu quy và Lễ thành hôn -->
+      <!-- ===============================
+          TRANG TRÍ ĐƯỜNG + NHÀ GÁI
+      ================================ -->
+      <div class="card ceremony-card">
+
+        <!-- ================= LỄ VU QUY ================= -->
+        <div class="ceremony vuquy">
+          <h2 class="ceremony-title">LỄ VU QUY</h2>
+          <p class="ceremony-time">VÀO THỨ BẢY - 07H00</p>
+
+          <div class="ceremony-date">
+            <span>Tháng 01</span>
+            <strong>24</strong>
+            <span>2026</span>
+          </div>
+
+          <p class="ceremony-lunar">Tức Ngày 06 tháng 12 năm Ất Tỵ</p>
+          <p class="ceremony-place">TẠI TƯ GIA NỮ</p>
+          <!-- Nhà Gái -->
+          <div class="house bride">
+            <a class="map-btn" href="https://maps.app.goo.gl/qs9G77shiHj9hvcv7" target="_blank">CHỈ ĐƯỜNG</a>
+          </div>
+        </div>
+
+        <!-- ============ TRANG TRÍ ĐƯỜNG + NHÀ ============ -->
+        <div class="route-wrapper">
+          <!-- Đường & xe (SVG / PNG) -->
+          <img src="assets/images/roadhouse.webp" class="roadhouse" alt="">
+        </div>
+
+        <!-- ================= LỄ THÀNH HÔN ================= -->
+        <div class="ceremony thanh-hon">
+          <h2 class="ceremony-title">LỄ THÀNH HÔN</h2>
+          <p class="ceremony-time">VÀO THỨ BẢY - 09H00</p>
+
+          <div class="ceremony-date">
+            <span>Tháng 01</span>
+            <strong>24</strong>
+            <span>2026</span>
+          </div>
+
+          <p class="ceremony-lunar">Tức Ngày 06 tháng 12 năm Ất Tỵ</p>
+          <p class="ceremony-place">TẠI TƯ GIA NAM</p>
+          <!-- Nhà Trai -->
+          <div class="house groom">
+            <a class="map-btn" href="https://maps.app.goo.gl/waQ3isg5nru4tkeP9" target="_blank">CHỈ ĐƯỜNG</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <!-- ---------------------------------------------------------------------------
+      CALENDAR SECTION
+    --------------------------------------------------------------------------- -->
+    <section class="calendar-section">
+
+      <!-- Background -->
+      <img src="assets/images/calendar.webp" class="calendar-bg" alt="">
+      <div class="calendar-overlay"></div>
+
+      <!-- Title -->
+      <h2 class="calendar-title">INVITATION</h2>
+
+      <!-- Calendar -->
+      <div class="calendar-wrapper">
+        <div class="calendar-grid">
+
+          <!-- header -->
+          <span class="day header">Mon</span>
+          <span class="day header">Tue</span>
+          <span class="day header">Wed</span>
+          <span class="day header">Thu</span>
+          <span class="day header">Fri</span>
+          <span class="day header">Sat</span>
+          <span class="day header">Sun</span>
+
+          <!-- offset -->
+          <span class="day empty"></span>
+          <span class="day empty"></span>
+          <span class="day empty"></span>
+
+          <!-- days -->
+          <span class="day">1</span>
+          <span class="day">2</span>
+          <span class="day">3</span>
+          <span class="day">4</span>
+          <span class="day">5</span>
+          <span class="day">6</span>
+          <span class="day">7</span>
+
+          <span class="day">8</span>
+          <span class="day">9</span>
+          <span class="day">10</span>
+          <span class="day">11</span>
+          <span class="day">12</span>
+          <span class="day">13</span>
+          <span class="day">14</span>
+
+          <span class="day">15</span>
+          <span class="day">16</span>
+          <span class="day">17</span>
+          <span class="day" data-day="18">18</span>
+          <span class="day">19</span>
+          <span class="day">20</span>
+          <span class="day">21</span>
+
+          <span class="day">22</span>
+          <span class="day">23</span>
+          <span class="day" data-day="24">24</span>
+          <span class="day">25</span>
+          <span class="day">26</span>
+          <span class="day">27</span>
+          <span class="day">28</span>
+
+          <span class="day">29</span>
+          <span class="day">30</span>
+          <span class="day">31</span>
+
+        </div>
+
+        <!-- ICON OVERLAY -->
+        <img src="assets/images/heart-bride.webp" class="calendar-icon bride" alt="">
+        <img src="assets/images/heart-groom.webp" class="calendar-icon groom" alt="">
+      </div>
+      <div class="calendar-slogan">
+        <p class="sologan1">Yêu 10 năm rồi....</p>
+        <p class="sologan2">giờ mình cưới thôi</p>
+      </div>
+    </section>
+    <!-- ---------------------------------------------------------------------------
+      CONFIRM JOIN SECTION
+    --------------------------------------------------------------------------- -->
+    <section id="confirm-join" class="confirm-section">
+      <div class="confirm-card">
+        <h2>Xác nhận tham dự</h2>
+        <p class="confirm-desc">
+          Hãy xác nhận sự có mặt của bạn để chúng mình chuẩn bị đón tiếp một cách chu đáo nhất.
+        </p>
+
+        <form id="confirmForm" onsubmit="submitConfirm(event)">
+          <div class="form-group">
+            <label for="name">Họ và tên</label>
+            <input type="text" id="name" name="name" placeholder="Nhập tên của bạn">
+          </div>
+          <div class="form-group" id="amountGroup">
+            <label for="amount">Số người tham dự</label>
+            <select id="amount" name="amount">
+              <option value="1" selected>1 người</option>
+              <option value="2">2 người</option>
+              <option value="3">3 người</option>
+              <option value="4">4 người</option>
+              <option value="5">5 người</option>
+              <option value="6">6 người</option>
+              <option value="7">7 người</option>
+              <option value="8">8 người</option>
+              <option value="9">9 người</option>
+              <option value="10">10 người</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Bạn sẽ tham dự chứ?</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="attend" value="yes" checked>
+                Có, Mình sẽ tham dự
+              </label>
+              <label>
+                <input type="radio" name="attend" value="no">
+                Tiếc ghê, mình bận mất rồi
+              </label>
+            </div>
+          </div>
+
+
+          <button type="submit" class="btn-confirm" id="btnConfirm">
+            Gửi
+          </button>
+
+          <!-- 👇 THÔNG BÁO HIỂN THỊ Ở ĐÂY -->
+          <div id="confirmMessage" class="confirm-message"></div>
+        </form>
+
+      </div>
+    </section>
+    <!-- ---------------------------------------------------------------------------
+      ALBUM SECTION
+    --------------------------------------------------------------------------- -->
+    <section id="gallery-section" class="section center">
+      <h2>Our memories</h2>
+
+      <div class="gallery-slider">
+
+        <!-- ẢNH LỚN -->
+        <div class="gallery-main cinematic">
+          <div class="cinematic-bg"></div>
+          <img id="mainImage" class="cinematic-img" src="assets/images/pic1.webp" alt="main">
+        </div>
+
+
+        <!-- THUMBNAILS -->
+        <div class="gallery-thumbs-wrapper fade-edge">
+          <div class="gallery-thumbs" id="thumbs">
+            <img src="assets/images/pic1.webp" class="active">
+            <img src="assets/images/pic2.webp">
+            <img src="assets/images/pic3.webp">
+            <img src="assets/images/pic4.webp">
+            <img src="assets/images/pic5.webp">
+            <img src="assets/images/pic6.webp">
+            <img src="assets/images/pic7.webp">
+            <img src="assets/images/pic8.webp">
+            <img src="assets/images/pic9.webp">
+            <img src="assets/images/pic10.webp">
+            <img src="assets/images/pic11.webp">
+            <img src="assets/images/pic12.webp">
+            <img src="assets/images/pic13.webp">
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+      <span class="lightbox-close">×</span>
+      <img id="lightbox-img">
+    </div>
+    <!-- ---------------------------------------------------------------------------
+      SEND WISH SECTION
+    --------------------------------------------------------------------------- -->
+    <section id="wish-section" class="section center">
+      <h2>Gửi lời chúc</h2>
+
+      <div class="wish-box">
+        <input type="text" id="wishName" placeholder="Tên của bạn ✍️">
+
+        <textarea id="wishMessage" rows="4"
+          placeholder="Lời chúc dành cho cô dâu & chú rể 💕"></textarea>
+
+        <div class="wish-actions">
+          <button
+            type="button"
+            id="sendWishBtn"
+            class="btn-send"
+            onclick="sendWish()">
+            Gửi lời chúc
+          </button>
+
+          <button class="btn-qr" onclick="openQR()">
+            <img src="assets/images/gift.png" alt="Quà mừng" class="btn-icon">
+            <span>Hộp quà mừng</span>
+          </button>
+        </div>
+
+        <p id="wishAlert" class="wish-alert"></p>
+      </div>
+    </section>
+
+    <!-- POPUP QR -->
+    <div id="qrPopup" class="qr-popup">
+      <span class="qr-close" onclick="closeQR()">×</span>
+      <div class="qr-wrapper">
+        <!-- CÔ DÂU -->
+        <div class="qr-content">
+          <h3>👰 Mừng Cưới Đến Cô Dâu</h3>
+          <img src="assets/images/qr_bride.webp" alt="QR cô dâu">
+          <p><strong>Nguyễn Thu Kha</strong></p>
+          <p>STK: 138 07101999</p>
+          <p>TPBank</p>
+        </div>
+
+        <!-- CHÚ RỂ -->
+        <div class="qr-content">
+          <h3>🤵 Mừng Cưới Đến Chú Rể</h3>
+          <img src="assets/images/qr_groom.webp" alt="QR chú rể">
+          <p><strong>Dương Minh Ân</strong></p>
+          <p>STK: 138 04081999</p>
+          <p>TPBank</p>
+        </div>
+      </div>
+    </div>
+    <!-- ---------------------------------------------------------------------------
+      FOOTER SECTION
+    --------------------------------------------------------------------------- -->
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Thank you</p>
+    </footer>
+  </main>
+
   </div>
+  
+  <script src="assets/js/main.js"></script>
+
 </body>
 </html>
-

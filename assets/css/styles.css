@@ -8,12 +8,19 @@ body {
 
 .page-wrapper {
   width: 100%;
-  max-width: 720px;     /* 🔒 FIX SIZE TỐI ĐA */
+  max-width: 570px;     /* 🔒 FIX SIZE TỐI ĐA */
   min-height: 100vh;
   background: #fff;
   box-shadow: 0 0 40px rgba(0,0,0,0.06);
 }
 
+@font-face {
+  font-family: 'Carlytte';
+  src: url('../fonts/Carlytte.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* #############################################################################################################################
     RESET
@@ -32,8 +39,7 @@ header {
 
 .hero {
   position: relative;
-  max-width: 720px;
-  height: 100vh;             /* CHỈNH: thay 150vh → 100vh */
+  height: 90vh;            /* CHỈNH: thay 150vh → 100vh */
   min-height: 500px;
   display: flex;
   align-items: center;
@@ -52,7 +58,7 @@ header {
 .hero-image {
   position: absolute;
   inset: 0;
-  width: 130%; 
+  width: 105%; 
   height: 100%;
   object-fit: cover;
   filter: brightness(1); /*Chỉnh sáng tối cho ảnh*/
@@ -194,7 +200,7 @@ header {
 
   box-shadow: 0 4px 12px rgba(0,0,0,.15);
   /* ⭐ FIX QUAN TRỌNG */
-  right: calc(50% - 360px + 16px);
+  right: calc(50% - 285px + 16px);
 }
 
 
@@ -235,7 +241,7 @@ header {
   gap: 12px;                       /* khoảng cách GIỮA các khối */
 
   /* --- Color --- */
-  color: #d14040;                  /* màu chữ mặc định trong hero */
+  color: #c91717;                  /* màu chữ mặc định trong hero */
 }
 
 /* ------------------------------------------------
@@ -260,7 +266,7 @@ header {
   transform: translate(10vw, -12vh) rotate(-12deg);
 
   /* --- Spacing --- */
-  margin-bottom: 6px;                        /* khoảng cách với tên */
+  margin-bottom: 60px;                        /* khoảng cách với tên */
 
   /* --- Text behavior --- */
   white-space: nowrap;                       /* không cho xuống dòng */
@@ -271,39 +277,33 @@ header {
 ============================== */
 
 .hero .couple-names {
-  --spread: 0px; /* mặc định: KHÔNG tách */
-
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 20px);
 
-  font-family: 'Literata', serif;
+  font-family: 'Playfair';
   font-size: clamp(26px, 5vw, 56px);
   line-height: 1.15;
-
   white-space: nowrap;
 }
 
-/* dấu & LUÔN Ở GIỮA */
-.hero .couple-names .and {
-  grid-column: 2;
-  font-weight: 400;
-}
-
-/* tên trên (MINH ÂN) → dịch sang PHẢI khi đủ chỗ */
+/* Minh Ân */
 .hero .couple-names .bride {
-  grid-column: 3;
-  justify-self: start;
-  transform: translateX(var(--spread));
+  font-weight: 500;
 }
 
-/* tên dưới (THU KHA) → dịch sang TRÁI khi đủ chỗ */
-.hero .couple-names .groom {
-  grid-column: 1;
-  justify-self: end;
-  transform: translateX(calc(-1 * var(--spread)));
+/* dấu & */
+.hero .couple-names .and {
+  font-weight: 400;
+  opacity: 0.8;
 }
+
+/* Thu Kha */
+.hero .couple-names .groom {
+  font-weight: 500;
+}
+
 
 
 /* ------------------------------------------------
@@ -396,10 +396,10 @@ header {
    BUTTON
 ============================ */
 .actions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 .actions .btn {
@@ -408,17 +408,18 @@ header {
     font-size: 18px;
     border: none;
     cursor: pointer;
+    font-family: 'Quicksand', cursive;
 }
 
 .actions .primary {
-    background: #d34d55;
+    background: #6F2E2E;
     color: white;
 }
 
 .actions .secondary {
     background: white;
-    border: 2px solid #d34d55;
-    color: #d34d55;
+    border: 2px solid #6F2E2E;
+    color: #6F2E2E;
 }
 
 /* ================================================================================================
@@ -463,7 +464,7 @@ header {
 
   /* --- Text style --- */
   letter-spacing: 4px;             /* giãn chữ */
-  color: #610d0d;                  /* màu chữ */
+  color: #6F2E2E;                  /* màu chữ */
   text-shadow: 0 3px 20px rgba(0,0,0,0.3); /* đổ bóng */
 }
 
@@ -555,7 +556,7 @@ header {
 ------------------------------------------------ */
 .family p {
   /* --- Font --- */
-  font-family: "Roboto", sans-serif;
+  font-family: "Playfair", sans-serif;
 
   /* --- Text size --- */
   font-size: clamp(14px, 3.5vw, 20px);
@@ -572,10 +573,11 @@ header {
 ------------------------------------------------ */
 .invite-text {
   /* --- Font --- */
-  font-family: "Goldman", sans-serif;
+  font-family: "Playfair", sans-serif;
 
   /* --- Text size --- */
-  font-size: clamp(14px, 3vw, 18px);
+  font-size: clamp(14px, vw, 18px);
+  font-weight:600;
 
   /* --- Color --- */
   color: #444;
@@ -593,13 +595,13 @@ header {
   white-space: nowrap;
 }
 .name .title {
-  font-family: "Playfair Display", serif; /* font trang trọng */
+  font-family: "Playfair", serif; /* font trang trọng */
   font-size: clamp(14px, 3vw, 18px);
   letter-spacing: 1px;
   color: #555;
 }
 .name .fullname {
-  font-family: "Cookie", cursive; /* font chữ ký */
+  font-family: "Playfair"; /* font chữ ký */
   font-size: clamp(26px, 6vw, 36px);
   font-weight: 400;
   color: #000;
@@ -685,6 +687,7 @@ header {
   justify-content: flex-start;
   margin-left: 50px;   /* ✅ KHÔNG gây overflow */
   transform: none;
+  margin-bottom: 10px;
 }
 
 /* Khoảng cách ảnh – tên cô dâu */
@@ -726,7 +729,8 @@ header {
 .invite-sentences {
   text-align: center;
   /* --- Font --- */
-  font-family: "Goldman", sans-serif;
+  font-family: "Playfair", sans-serif;
+  font-weight:600;
 
   /* --- Text size --- */
   font-size: clamp(20px, 3vw, 18px);
@@ -747,11 +751,12 @@ header {
 
 .invite-card {
     border-radius: 20px;
-    background: #7c0a0a;
+    font-family: "Quicksand", sans-serif;
+    background: #6F2E2E;
     padding: 25px;
     color: #fff;
     text-align: center;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.25);
     max-width: 700px;   /* chỉnh bề ngang tối đa của hình chữ nhật */
     width: 90%;         /* tự co khi màn hình nhỏ */
     margin: 0.5rem auto; 
@@ -834,12 +839,13 @@ header {
 ================================ */
 .ceremony-card {
   background: #64595907;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   position: relative;
   border-radius: 20px;
   padding: 25px;
   color: #fff;
-  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.25);
   max-width: 700px;   /* chỉnh bề ngang tối đa của hình chữ nhật */
   width: 90%;         /* tự co khi màn hình nhỏ */
   margin: 0.5rem auto;
@@ -970,8 +976,10 @@ header {
 ================================================================= */
 
 .calendar-section {
+  margin-top: 20px;
   position: relative;
-  height: 100vh;
+  /* ⬇️ GIẢM CHIỀU CAO Ở ĐÂY */
+  height: 90vh;
   overflow: hidden;
 }
 
@@ -995,7 +1003,7 @@ header {
 .calendar-title {
   position: relative;
   z-index: 3;
-  margin-top: 50px;
+  margin-top: 30px;
   text-align: center;
   color: #fff;
   font-size: 22px;
@@ -1009,9 +1017,8 @@ header {
   right: clamp(16px, 9vw, 40px);
   z-index: 3;
 
-  /* 🔑 BIẾN KÍCH THƯỚC */
-  --cell: clamp(22px, 7vw, 36px);
-  --gap: clamp(6px, 2.5vw, 14px);
+  --cell: 20px;   /* ⬅️ kích thước ô cố định */
+  --gap: 13px;    /* ⬅️ khoảng cách cố định */
 }
 
 .calendar-grid {
@@ -1030,10 +1037,11 @@ header {
   justify-content: center;
 
   font-size: clamp(11px, 2vw, 14px);
+  font-weight: 600;
   line-height: 1;
 
   color: #fff;
-  opacity: 0.;
+  opacity: 1;
 }
 
 
@@ -1050,16 +1058,16 @@ header {
 /* icon */
 .calendar-icon {
   position: absolute;
-  width: 34px;
-  height: 34px;
+  width: 35px;
+  height: 35px;
   pointer-events: none;
   z-index: 5;
-  transform: translate(-2px, -2px); /* tim ôm số */
+  transform: translate(-7px, -6px); /* tim ôm số */
 }
 
 .calendar-slogan {
   position: absolute;
-  bottom: 110px;      /* cách cạnh dưới ảnh 10px */
+  bottom: 10px;      /* cách cạnh dưới ảnh 10px */
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -1077,104 +1085,141 @@ header {
 
 .sologan1 {
   font-family: "Smooch Sans", serif;
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 35px;
+  font-weight: 300;
 }
 .sologan2 {
   font-family: "Corinthia", serif;
-  font-size: 42px;
+  font-size: 62px;
   font-weight: 500;
 }
 
 /* ======================================================= confirm section ======================================================= */
+/* ===== CONFIRM SECTION ===== */
 .confirm-section {
-  padding: 30px 10px;
+  font-family: "Quicksand", serif;
+  padding: 40px 12px;
   display: flex;
   justify-content: center;
   background: #fafafa;
 }
 
+/* ===== CARD ===== */
 .confirm-card {
   background: #fff;
   max-width: 420px;
   width: 100%;
-  padding: 28px 24px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 32px 26px 36px;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
   text-align: center;
 }
 
+/* Title */
 .confirm-card h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
+/* Description */
 .confirm-desc {
   font-size: 14px;
-  color: #666;
-  margin-bottom: 24px;
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 26px;
 }
 
+/* ===== FORM ===== */
 .form-group {
   text-align: left;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
-
-.form-group select {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  background: #fff;
-}
-
 
 .form-group label {
   display: block;
   font-size: 14px;
+  font-weight: 500;
   margin-bottom: 6px;
+  color: #333;
 }
 
-.form-group input[type="text"] {
+/* Input & Select */
+.form-group input[type="text"],
+.form-group select {
   width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: 12px 14px;
+  border-radius: 14px;
   border: 1px solid #ddd;
   font-size: 14px;
+  background: #fff;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+/* Focus đẹp như Gửi lời chúc */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #d94b4b;
+  box-shadow: 0 0 0 2px rgba(217,75,75,0.15);
+}
+
+/* ===== RADIO GROUP ===== */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .radio-group label {
-  display: block;
   font-size: 14px;
-  margin-bottom: 8px;
+  color: #444;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .radio-group input {
-  margin-right: 8px;
+  margin-right: 10px;
+  accent-color: #d94b4b;
 }
 
+/* ===== BUTTON ===== */
 .btn-confirm {
   width: 100%;
-  padding: 12px;
-  background: #7b2d2d;
+  padding: 14px;
+  background: linear-gradient(135deg, #8b2f2f, #6f2323);
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
   font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 14px;
+  transition: all 0.3s ease;
 }
 
 .btn-confirm:hover {
-  background: #5e2121;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(123,45,45,0.3);
 }
 
+/* Loading */
+.btn-confirm.loading {
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+/* ===== MESSAGE ===== */
 .confirm-message {
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 14px;
   min-height: 20px;
+  text-align: center;
 }
 
 .confirm-message.error {
@@ -1189,16 +1234,22 @@ header {
   color: #7a4b4b;
 }
 
-.btn-confirm.loading {
-  pointer-events: none;
-  opacity: 0.7;
-}
+/* ===== AMOUNT GROUP ===== */
 #amountGroup {
   display: block;
 }
 
 
 /* ===== GALLERY SLIDER ===== */
+#gallery-section h2 {
+  font-family: "Corinthia", serif;
+  font-size: 40px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  color: #6F2E2E;
+  font-weight: 300;
+}
+
 .gallery-slider {
   max-width: 900px;
   margin: auto;
@@ -1364,10 +1415,13 @@ header {
 /* ============================
    WISH SECTION
 ============================ */
-
+#wish-section h2 {
+  font-family: "Quicksand", serif;
+}
 
 /* ===== WISH SECTION ===== */
 #wish-section h2 {
+  margin-top: -30px;
   margin-bottom: 20px;
 }
 
@@ -1467,11 +1521,27 @@ header {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  padding: 20px;
 }
+
+/* ❌ NÚT ĐÓNG – NAY ĐỨNG YÊN */
+.qr-close {
+  position: absolute;        /* neo theo popup */
+  top: 18px;
+  right: 20px;
+  z-index: 10000;
+
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+
+  touch-action: manipulation;
+}
+
 
 .qr-wrapper {
   background: #fff;
+  font-family: "Quicksand", serif;
   border-radius: 22px;
   padding: 25px 20px;
   max-width: 700px;
@@ -1484,17 +1554,6 @@ header {
 
   overflow-x: auto;        /* VUỐT NGANG */
   -webkit-overflow-scrolling: touch;
-
-  position: relative;
-}
-
-
-.qr-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
-  cursor: pointer;
 }
 
 .qr-content {
@@ -1548,135 +1607,282 @@ header {
   opacity:.8; 
 
   font-family: "Corinthia", serif;
-  font-size: 42px;
+  font-size: 50px;
   font-weight: 500;
 }
 
 /* ============================
    RESPONSIVE (MOBILE)
 ============================ */
-@media (min-width: 721px) {
 
+
+@media (min-width: 571px) {
   /* WE GET MARRIED */
   .we-get-married {
-    font-size: 58px;                       /* 🔒 khóa cứng */
-    transform: translate(210px, -250px) rotate(-10deg);
+    transform: translate(100px, -290px) rotate(-10deg);
+    font-size: 70px;
+  }
+  .hero {
+  overflow: visible;
+}
+
+
+  /* COUPLE NAMES */
+  .hero .couple-names {
+    font-size: 39px;                       /* 🔒 khóa */
+    --spread: 10px;                       /* 🔒 khóa */
   }
 
+  .hero .wedding-date {
+    font-size: 28px;                       /* 🔒 khóa */
+  }
+
+  .info-sentences {
+    font-size: 42px; 
+  }
+
+  /* SAVE THE DATE */
+  .save-the-date .line {
+    font-size: 45px;                       /* 🔒 thay 10vw */
+  }
+  .day {
+    font-size: clamp(11px, 9vw, 14px);
+  }
+  .calendar-wrapper {
+    --cell: 34px;   /* ⬅️ kích thước ô cố định */
+    --gap: 27px;    /* ⬅️ khoảng cách cố định */
+  }
+  .calendar-icon {
+    width: 49px;
+    height: 49px;
+    transform: translate(-7px, -6px); /* tim ôm số */
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 570px) {
+  .we-get-married {
+    transform: translate(17vw, -34vh) rotate(-10deg);
+    font-size: 68px;
+  }
+  
+  /* COUPLE NAMES */
+  .hero .couple-names {
+    font-size: 38px;                       /* 🔒 khóa */
+    --spread: 10px;                       /* 🔒 khóa */
+  }
+  .hero .wedding-date {
+    font-size: 27px;                       /* 🔒 khóa */
+  }
+  .info-sentences {
+    font-size: 41px; 
+  }
+
+  /* SAVE THE DATE */
+  .save-the-date .line {
+    font-size: 45px;                       /* 🔒 thay 10vw */
+  }
+  .day {
+    font-size: clamp(11px, 8vw, 14px);
+  }
+  .calendar-wrapper {
+    --cell: 32px;   /* ⬅️ kích thước ô cố định */
+    --gap: 25px;    /* ⬅️ khoảng cách cố định */
+  }
+  .calendar-icon {
+    width: 47px;
+    height: 47px;
+    transform: translate(-7px, -6px); /* tim ôm số */
+  }
+}
+
+@media (max-width: 550px) {
+  .we-get-married {
+    transform: translate(16vw, -33vh) rotate(-10deg);
+    font-size: 66px;
+  }
+  
+  /* COUPLE NAMES */
+  .hero .couple-names {
+    font-size: 37px;                       /* 🔒 khóa */
+    --spread: 10px;                       /* 🔒 khóa */
+  }
+  .hero .wedding-date {
+    font-size: 26px;                       /* 🔒 khóa */
+  }
+  .info-sentences {
+    font-size: 40px; 
+  }
+  .day {
+    font-size: clamp(11px, 7vw, 14px);
+  }
+  .calendar-wrapper {
+    --cell: 25px;   /* ⬅️ kích thước ô cố định */
+    --gap: 18px;    /* ⬅️ khoảng cách cố định */
+  }
+  .calendar-icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 520px) {
+  .we-get-married {
+    transform: translate(15vw, -32vh) rotate(-10deg);
+    font-size: 64px;
+  }
+  
   /* COUPLE NAMES */
   .hero .couple-names {
     font-size: 36px;                       /* 🔒 khóa */
     --spread: 10px;                       /* 🔒 khóa */
   }
-
-  /* SAVE THE DATE */
-  .save-the-date .line {
-    font-size: 72px;                       /* 🔒 thay 10vw */
+  .hero .wedding-date {
+    font-size: 25px;                       /* 🔒 khóa */
   }
-
+  .info-sentences {
+    font-size: 39px; 
+  }
+  .day {
+    font-size: clamp(11px, 6vw, 14px);
+  }
+  .calendar-wrapper {
+    --cell: 24px;   /* ⬅️ kích thước ô cố định */
+    --gap: 17px;    /* ⬅️ khoảng cách cố định */
+  }
+  .calendar-icon {
+    width: 43px;
+    height: 43px;
+  }
 }
 
-
-@media (max-width: 721px) {
-
-  .hero {
-    height: 85vh;                    /* phù hợp mobile */
-    min-height: 520px;
-  }
-
-  .music-btn {
-    right: 16px;
+@media (max-width: 490px) {
+  .we-get-married {
+    transform: translate(14vw, -31vh) rotate(-10deg);
+    font-size: 62px;
   }
   
-  .we-get-married {
-    transform: translate(23vw, -25vh) rotate(-10deg);
-    font-size: 47px;
-  }
-
-  .hero-content {
-    top: 58%;                        /* cân chỉnh đẹp hơn */
-  }
-
-  .names {
-    font-size: 34px;
-    margin-bottom: 18px;
-  }
-
-  .subtitle { font-size: 18px; }
-
-  .save-the-date-box { margin-bottom: 30px; }
-
-  .btn { padding: 0.5rem 0.9rem; }
-
-  .wave { height: 70px; }
-
+  /* COUPLE NAMES */
   .hero .couple-names {
-    --spread: clamp(20px, 6vw, 120px);
+    font-size: 35px;                       /* 🔒 khóa */
+    --spread: 10px;                       /* 🔒 khóa */
   }
-
+  .hero .wedding-date {
+    font-size: 24px;                       /* 🔒 khóa */
+  }
+  .info-sentences {
+    font-size: 38px; 
+  }
+  .day {
+    font-size: clamp(11px, 5vw, 14px);
+  }
+  .calendar-wrapper {
+    --cell: 23px;   /* ⬅️ kích thước ô cố định */
+    --gap: 16px;    /* ⬅️ khoảng cách cố định */
+  }
+  .calendar-icon {
+    width: 41px;
+    height: 41px;
+  }
 }
 
-/* SMALL MOBILE */
-@media (max-width: 480px) {
-
+@media (max-width: 460px) {
   .we-get-married {
-    transform: translate(17vw, -25vh) rotate(-10deg);
-    font-size: 50px;
-  }
-
-  .hero {
-    height: 90vh;
-    min-height: 520px;
-  }
-
-  .hero-content { top: 60%; }
-
-  .names { font-size: 30px; }
-  .subtitle { font-size: 16px; }
-
-  .timer { gap:0.5rem; }
-  .timer span { font-size:1.1rem; }
-
-  .hero .couple-names {
-    line-height: 1.3;
+    transform: translate(13vw, -30vh) rotate(-10deg);
+    font-size: 60px;
   }
   
+  /* COUPLE NAMES */
+  .hero .couple-names {
+    font-size: 34px;                       /* 🔒 khóa */
+    --spread: 10px;                       /* 🔒 khóa */
+  }
+  .hero .wedding-date {
+    font-size: 23px;                       /* 🔒 khóa */
+  }
+  .info-sentences {
+    font-size: 37px; 
+  }
+  .day {
+    font-size: clamp(11px, 4vw, 14px);
+  }
+  .calendar-wrapper {
+    --cell: 22px;   /* ⬅️ kích thước ô cố định */
+    --gap: 15px;    /* ⬅️ khoảng cách cố định */
+  }
+  .calendar-icon {
+    width: 39px;
+    height: 39px;
+  }
 }
 
 @media (max-width: 430px) {
-
   .we-get-married {
-    left: 0;
-    top: -40px;
-    transform: rotate(-8deg);
-    font-size: 42px;
-  }
-  .we-get-married {
-    transform: translate(11vw, -15vh) rotate(-10deg);
-    font-size: 47px;
-  }
-
-  .hero .couple-names {
-    --spread: clamp(0px, 2vw, 10px);
-  }
-
-  .wedding-style {
-    top: 58%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-@media (max-width: 400px) {
-  .we-get-married {
-    transform: translate(11vw, -15vh) rotate(-10deg);
-    font-size: 47px;
+    transform: translate(12vw, -29vh) rotate(-10deg);
+    font-size: 58px;
   }
   
-
+  /* COUPLE NAMES */
   .hero .couple-names {
-    --spread: clamp(0px, 1vw, 0px);
+    font-size: 33px;                       /* 🔒 khóa */
+    --spread: 10px;                       /* 🔒 khóa */
+  }
+  .hero .wedding-date {
+    font-size: 22px;                       /* 🔒 khóa */
+  }
+  .info-sentences {
+    font-size: 36px; 
+  }
+  .day {
+    font-size: clamp(11px, 3vw, 14px);
+  }
+  .calendar-wrapper {
+    --cell: 21px;   /* ⬅️ kích thước ô cố định */
+    --gap: 14px;    /* ⬅️ khoảng cách cố định */
+  }
+  .calendar-icon {
+    width: 37px;
+    height: 37px;
   }
 }
+
+/* pixel 4A */
+@media (max-width: 400px) {
+  .we-get-married {
+    transform: translate(11vw, -28vh) rotate(-10deg);
+    font-size: 56px;
+  }
+  
+  /* COUPLE NAMES */
+  .hero .couple-names {
+    font-size: 32px;                       /* 🔒 khóa */
+    --spread: 10px;                       /* 🔒 khóa */
+  }
+  .hero .wedding-date {
+    font-size: 21px;                       /* 🔒 khóa */
+  }
+  .info-sentences {
+    font-size: 35px; 
+  }
+  .day {
+    font-size: clamp(11px, 2vw, 14px);
+  }
+  .calendar-wrapper {
+    --cell: 20px;   /* ⬅️ kích thước ô cố định */
+    --gap: 13px;    /* ⬅️ khoảng cách cố định */
+  }
+  .calendar-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 570px) {
+  .music-btn {
+    right: 16px;
+  }
+}
+
 
 /* =====================================================
    DESKTOP / LAPTOP
@@ -1694,4 +1900,8 @@ header {
   word-break: break-word;
   overflow-wrap: break-word;
   text-align: center;
+}
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
 }
